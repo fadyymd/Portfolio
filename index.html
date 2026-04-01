@@ -1,516 +1,531 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Fadi Medkour | Senior Full Stack Developer</title>
-  <meta name="description" content="مطور برمجيات فول ستاك بمستوى متقدم - Fadi Medkour" />
-  <link rel="stylesheet" href="css/style.css" />
-  <!-- Google Fonts loaded in CSS -->
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Fadi Medkour | Senior Full Stack Developer</title>
+<meta name="description" content="Senior Full Stack Developer specializing in React, Node.js and modern web technologies."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link rel="stylesheet" href="css/style.css"/>
 </head>
 <body>
 
-  <!-- =========================================
-       NAVBAR
-       ========================================= -->
-  <nav class="navbar" id="navbar">
-    <a href="#hero" class="nav-logo">Fadi<span>.</span>dev</a>
-    <ul class="nav-links" id="navLinks">
-      <li><a href="#about">عني</a></li>
-      <li><a href="#skills">المهارات</a></li>
-      <li><a href="#projects">المشاريع</a></li>
-      <li><a href="#experience">الخبرة</a></li>
-      <li><a href="#contact" class="nav-cta">تواصل معي</a></li>
-    </ul>
-    <div class="nav-toggle" id="navToggle">
-      <span></span><span></span><span></span>
-    </div>
-  </nav>
+<div id="cglow"></div>
 
-  <!-- =========================================
-       HERO
-       ========================================= -->
-  <section id="hero" class="hero">
-    <div class="hero-bg-grid"></div>
-    <div class="hero-orb hero-orb-1"></div>
-    <div class="hero-orb hero-orb-2"></div>
+<!-- ============ NAVBAR ============ -->
+<nav class="nav" id="nav">
+  <a href="#hero" class="nav-logo">fadi<span class="dot">_</span>dev</a>
+  <ul class="nav-menu" id="navMenu">
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#contact" class="nav-btn">Hire Me</a></li>
+  </ul>
+  <div class="nav-burger" id="burger">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
 
-    <div class="hero-container">
-      <!-- Left Content -->
-      <div class="hero-content">
-        <div class="hero-badge">
-          <span class="dot"></span>
-          متاح للعمل · Available for Work
-        </div>
-        <h1 class="hero-title">
-          <span class="line">Fadi Medkour</span>
-          <span class="line gradient-text"><span class="typing-text">Full Stack Developer</span></span>
-        </h1>
-        <p class="hero-desc">
-          مطور برمجيات فول ستاك بمستوى متقدم، أبني تطبيقات حديثة من الواجهة الأمامية إلى الخلفية باستخدام أحدث التقنيات. أسعى دائمًا لتقديم تجارب مستخدم استثنائية وكود نظيف وقابل للتوسع.
-        </p>
-        <div class="hero-actions">
-          <a href="#projects" class="btn-primary">
-            🚀 استعراض أعمالي
-          </a>
-          <a href="#contact" class="btn-secondary">
-            📨 تواصل معي
-          </a>
-        </div>
+<!-- ============ HERO ============ -->
+<section id="hero" class="hero">
+  <div class="hero-grid"></div>
+  <div class="orb orb1"></div>
+  <div class="orb orb2"></div>
+
+  <div class="hero-inner">
+    <!-- Left -->
+    <div class="hero-left">
+      <div class="hero-tag">
+        <span class="ping"></span>
+        Available for Work · Algiers, DZ
       </div>
+      <h1 class="hero-h1">
+        <span class="name">Fadi Medkour</span>
+        <span class="role" id="typeRole">Full Stack Dev</span>
+      </h1>
+      <p class="hero-p">Senior Full Stack Developer crafting high-performance web applications — from pixel-perfect interfaces to scalable back-end systems. I build with purpose, ship with quality.</p>
+      <div class="hero-btns">
+        <a href="#projects" class="btn-p">
+          <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+          View My Work
+        </a>
+        <a href="#contact" class="btn-s">
+          <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          Contact Me
+        </a>
+      </div>
+    </div>
 
-      <!-- Right: Image -->
-      <div class="hero-image-wrap">
-        <div class="hero-image-frame">
-          <img src="assets/profile.jpeg" alt="Fadi Medkour - Senior Full Stack Developer" />
+    <!-- Right: Photo -->
+    <div class="hero-photo">
+      <div class="photo-wrap">
+        <img src="assets/profile.jpeg" alt="Fadi Medkour" loading="eager" width="320" height="400"/>
 
-          <!-- Code Card -->
-          <div class="hero-code-card">
-            <div class="code-line"><span class="code-keyword">const</span>&nbsp;<span style="color:#eef2ff">dev</span>&nbsp;= {</div>
-            <div class="code-line">&nbsp;&nbsp;<span class="code-string">"name"</span>:&nbsp;<span class="code-string">"Fadi"</span>,</div>
-            <div class="code-line">&nbsp;&nbsp;<span class="code-string">"level"</span>:&nbsp;<span class="code-string">"Senior"</span>,</div>
-            <div class="code-line">&nbsp;&nbsp;<span class="code-string">"stack"</span>:&nbsp;<span class="code-string">"Full"</span></div>
-            <div class="code-line">};</div>
-          </div>
+        <!-- Code card -->
+        <div class="fc fc-code">
+          <div><span class="kw">const</span> dev = {</div>
+          <div>&nbsp;&nbsp;<span class="st">"name"</span>: <span class="st">"Fadi"</span>,</div>
+          <div>&nbsp;&nbsp;<span class="st">"level"</span>: <span class="st">"Senior"</span>,</div>
+          <div>&nbsp;&nbsp;<span class="st">"stack"</span>: <span class="st">"Full"</span></div>
+          <div>};</div>
+        </div>
 
-          <!-- Stats Card -->
-          <div class="hero-stats">
-            <div class="hero-stat">
-              <div class="number" data-count="3">3+</div>
-              <div class="label">سنوات خبرة</div>
-            </div>
-            <div class="hero-stat">
-              <div class="number" data-count="20">20+</div>
-              <div class="label">مشروع</div>
-            </div>
-            <div class="hero-stat">
-              <div class="number" data-count="10">10+</div>
-              <div class="label">تقنية</div>
-            </div>
-          </div>
+        <!-- Stats card -->
+        <div class="fc fc-stats">
+          <div class="stat"><div class="n" data-c="3">0+</div><div class="l">Years Exp.</div></div>
+          <div class="stat"><div class="n" data-c="20">0+</div><div class="l">Projects</div></div>
+          <div class="stat"><div class="n" data-c="10">0+</div><div class="l">Tech</div></div>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- =========================================
-       ABOUT
-       ========================================= -->
-  <section id="about" class="about">
-    <div class="about-grid">
-      <!-- Image Side -->
-      <div class="about-image-side reveal">
-        <div class="deco-border"></div>
-        <div class="about-img-container">
-          <img src="assets/profile.jpeg" alt="Fadi Medkour" />
-          <div class="about-img-overlay"></div>
-          <div class="about-img-badge">
-            <div class="status">
-              <span class="status-dot"></span>
-              <span>الحالة الحالية</span>
-            </div>
-            <strong>طالب جامعي + مطور</strong>
-          </div>
-        </div>
+<!-- ============ ABOUT ============ -->
+<section id="about" class="about">
+  <div class="about-g">
+    <!-- Image -->
+    <div class="about-img rv">
+      <div class="deco-sq"></div>
+      <img src="assets/profile.jpeg" alt="Fadi Medkour" loading="lazy" width="480" height="460"/>
+      <div class="a-badge">
+        <div class="a-badge-row"><span class="a-dot"></span>Current Status</div>
+        <strong>Student & Developer</strong>
       </div>
+    </div>
 
-      <!-- Text Side -->
+    <!-- Text -->
+    <div>
+      <div class="sec-tag rv">About Me</div>
+      <h2 class="sec-h rv">Who I Am <span>&</span> What I Do</h2>
       <div class="about-text">
-        <div class="section-tag reveal">عني</div>
-        <h2 class="section-title reveal">من أنا <span>&</span> ماذا أفعل؟</h2>
+        <p class="rv" data-d="1">I'm <strong>Fadi Medkour</strong>, a Senior Full Stack Developer with advanced expertise in building modern applications end-to-end. I focus on <strong>performance, scalability and exceptional user experience</strong> across every layer of the stack.</p>
+        <p class="rv" data-d="2">On the <strong>frontend</strong>, I craft fast, interactive UIs with HTML, CSS, JavaScript and React. On the <strong>backend</strong>, I build robust and secure APIs with Node.js, backed by SQL and NoSQL databases designed to scale.</p>
+        <p class="rv" data-d="3">Beyond coding, I bring a creative edge through <strong>Adobe Illustrator</strong> — merging technical precision with visual design. I work using Agile methodologies and Git, always writing clean, maintainable code.</p>
+      </div>
+      <div class="chips rv" data-d="4">
+        <span class="chip">
+          <!-- Graduation cap -->
+          <svg viewBox="0 0 24 24" fill="none" stroke="#4d8fff" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+          University Student
+        </span>
+        <span class="chip">
+          <!-- Palette -->
+          <svg viewBox="0 0 24 24" fill="none" stroke="#4d8fff" stroke-width="2"><circle cx="13.5" cy="6.5" r=".5" fill="#4d8fff"/><circle cx="17.5" cy="10.5" r=".5" fill="#4d8fff"/><circle cx="8.5" cy="7.5" r=".5" fill="#4d8fff"/><circle cx="6.5" cy="12.5" r=".5" fill="#4d8fff"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 011.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"/></svg>
+          Adobe Illustrator
+        </span>
+        <span class="chip">
+          <!-- Git branch -->
+          <svg viewBox="0 0 24 24" fill="none" stroke="#4d8fff" stroke-width="2"><line x1="6" y1="3" x2="6" y2="15"/><circle cx="18" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M18 9a9 9 0 01-9 9"/></svg>
+          Git & Agile
+        </span>
+        <span class="chip">
+          <!-- Code -->
+          <svg viewBox="0 0 24 24" fill="none" stroke="#4d8fff" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+          Clean Code
+        </span>
+      </div>
+    </div>
+  </div>
+</section>
 
-        <p class="reveal" data-delay="100">
-          أنا <strong>Fadi Medkour</strong>، مطور برمجيات فول ستاك بمستوى متقدم أمتلك خبرة قوية في تطوير التطبيقات الحديثة من الواجهة الأمامية إلى الخلفية. أعمل على بناء أنظمة متكاملة باستخدام أحدث التقنيات، مع اهتمام كبير بالأداء، قابلية التوسع، وتجربة المستخدم.
-        </p>
-        <p class="reveal" data-delay="150">
-          في <strong>الواجهة الأمامية</strong>، أتقن تطوير واجهات تفاعلية وسريعة باستخدام HTML، CSS، JavaScript وأطر العمل الحديثة مثل React. أما في <strong>الواجهة الخلفية</strong>، لدي خبرة في بناء APIs قوية وآمنة باستخدام Node.js وقواعد بيانات SQL وNoSQL.
-        </p>
-        <p class="reveal" data-delay="200">
-          إضافةً لذلك، أمتلك مهارات في <strong>Adobe Illustrator</strong> مما يسمح لي بدمج الجانب الإبداعي مع التقني، وأعمل وفق منهجيات Agile ضمن فرق برمجية متنوعة.
-        </p>
+<!-- ============ SKILLS ============ -->
+<section id="skills" class="skills">
+  <div style="max-width:1060px;margin:0 auto">
+    <div class="sec-hdr">
+      <div class="sec-tag rv">Tech Stack</div>
+      <h2 class="sec-h rv">Skills & <span>Technologies</span></h2>
+      <p class="sec-sub rv">The tools and technologies I use to build exceptional digital products from idea to production.</p>
+    </div>
+    <div class="skills-g">
 
-        <div class="about-highlights reveal" data-delay="250">
-          <div class="highlight-item">
-            <div class="icon">🎓</div>
-            <h4>طالب جامعي</h4>
-            <p>خلفية أكاديمية في علوم الحاسوب</p>
+      <!-- Frontend -->
+      <div class="sk-card rv">
+        <div class="sk-top">
+          <div class="sk-ico">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#4d8fff" stroke-width="1.8"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
           </div>
-          <div class="highlight-item">
-            <div class="icon">🎨</div>
-            <h4>Adobe Illustrator</h4>
-            <p>مصمم واجهات وهويات بصرية</p>
+          <div><h3>Frontend</h3><p>UI / Interfaces</p></div>
+        </div>
+        <div class="tags">
+          <span class="tag">
+            <!-- HTML5 -->
+            <svg viewBox="0 0 24 24" fill="#e34f26"><path d="M1.5 0h21l-1.91 21.563L11.977 24l-8.565-2.438L1.5 0zm7.031 9.75l-.232-2.718 10.059.003.23-2.622L5.412 4.41l.698 8.01h9.126l-.326 3.426-2.91.804-2.955-.81-.188-2.11H6.248l.33 4.171L12 19.351l5.379-1.443.744-8.157H8.531z"/></svg>
+            HTML5
+          </span>
+          <span class="tag">
+            <!-- CSS3 -->
+            <svg viewBox="0 0 24 24" fill="#264de4"><path d="M1.5 0h21l-1.91 21.563L11.977 24l-8.564-2.438L1.5 0zm17.09 4.413L5.41 4.41l.213 2.622 10.125.002-.255 2.716h-6.64l.24 2.573h6.182l-.366 3.523-2.91.804-2.956-.81-.188-2.11h-2.61l.29 3.855L12 19.288l5.373-1.53L18.59 4.414z"/></svg>
+            CSS3
+          </span>
+          <span class="tag">
+            <!-- JS -->
+            <svg viewBox="0 0 24 24" fill="#f7df1e"><rect width="24" height="24" rx="2"/><path d="M6.5 17.5c.4.7 1 1.2 2 1.2 1.1 0 1.7-.5 1.7-1.3 0-.9-.7-1.2-1.8-1.7l-.6-.3c-1.8-.8-3-1.7-3-3.7 0-1.8 1.4-3.2 3.5-3.2 1.5 0 2.6.5 3.4 1.9l-1.9 1.2c-.4-.7-.8-1-1.5-1-.7 0-1.1.4-1.1 1 0 .7.4 1 1.5 1.5l.6.3c2.1.9 3.3 1.8 3.3 3.9 0 2.2-1.7 3.4-4 3.4-2.2 0-3.6-1-4.3-2.4l2.2-1.5zm8.7-9.3h2.4v5.8c0 2.6-1.2 3.5-3 3.5-.5 0-1.1-.1-1.6-.3l.3-2c.3.1.7.2 1 .2.7 0 1.1-.3 1.1-1.4l-.2-5.8z" fill="#323330"/></svg>
+            JavaScript
+          </span>
+          <span class="tag">
+            <!-- React -->
+            <svg viewBox="0 0 24 24" fill="#61dafb"><circle cx="12" cy="11.245" r="1.785"/><path d="M7.002 14.794l-.395-.101c-2.934-.741-4.617-2.001-4.617-3.452 0-1.452 1.683-2.711 4.617-3.452l.395-.1.116.381a26.4 26.4 0 00.804 2.342l.115.283-.115.284a26.4 26.4 0 00-.804 2.342l-.116.473zm-.791-5.689C4.237 9.645 3 10.565 3 11.241c0 .677 1.237 1.596 3.211 2.136.232-.767.479-1.493.73-2.136a28.18 28.18 0 01-.73-2.136zm9.784 5.689l-.116-.381a26.4 26.4 0 00-.804-2.342l-.115-.284.115-.283a26.4 26.4 0 00.804-2.342l.116-.381.395.101c2.934.741 4.617 2 4.617 3.452 0 1.451-1.683 2.711-4.617 3.452l-.395.008zm.396-4.278c.251.643.498 1.369.73 2.136 1.974-.54 3.211-1.46 3.211-2.136 0-.677-1.237-1.596-3.211-2.136-.232.767-.479 1.493-.73 2.136z"/></svg>
+            React.js
+          </span>
+          <span class="tag">
+            <!-- Tailwind -->
+            <svg viewBox="0 0 24 24" fill="#06b6d4"><path d="M12.001 4.8c-3.2 0-5.2 1.6-6 4.8 1.2-1.6 2.6-2.2 4.2-1.8.913.228 1.565.89 2.288 1.624C13.666 10.618 15.027 12 18.001 12c3.2 0 5.2-1.6 6-4.8-1.2 1.6-2.6 2.2-4.2 1.8-.913-.228-1.565-.89-2.288-1.624C16.337 6.182 14.976 4.8 12.001 4.8zm-6 7.2c-3.2 0-5.2 1.6-6 4.8 1.2-1.6 2.6-2.2 4.2-1.8.913.228 1.565.89 2.288 1.624 1.177 1.194 2.538 2.576 5.512 2.576 3.2 0 5.2-1.6 6-4.8-1.2 1.6-2.6 2.2-4.2 1.8-.913-.228-1.565-.89-2.288-1.624C10.337 13.382 8.976 12 6.001 12z"/></svg>
+            Tailwind CSS
+          </span>
+        </div>
+      </div>
+
+      <!-- Backend -->
+      <div class="sk-card rv" data-d="1">
+        <div class="sk-top">
+          <div class="sk-ico">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#4d8fff" stroke-width="1.8"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
           </div>
-          <div class="highlight-item">
-            <div class="icon">⚙️</div>
-            <h4>Clean Code</h4>
-            <p>كود نظيف ومنظم وقابل للصيانة</p>
+          <div><h3>Backend</h3><p>APIs / Server</p></div>
+        </div>
+        <div class="tags">
+          <span class="tag">
+            <!-- Node.js -->
+            <svg viewBox="0 0 24 24" fill="#339933"><path d="M11.998.001a.944.944 0 00-.47.124L1.23 5.958C.79 6.207.527 6.674.527 7.173v11.665c0 .499.263.965.704 1.215l10.298 5.833c.289.165.624.165.94 0l10.297-5.833c.441-.25.704-.716.704-1.215V7.173c0-.499-.263-.965-.704-1.215L12.47.125a.944.944 0 00-.47-.124z"/></svg>
+            Node.js
+          </span>
+          <span class="tag">
+            <!-- Express (server icon) -->
+            <svg viewBox="0 0 24 24" fill="none" stroke="#4d8fff" stroke-width="1.8"><path d="M18 20V10M12 20V4M6 20v-6"/></svg>
+            Express.js
+          </span>
+          <span class="tag">
+            <!-- MongoDB leaf -->
+            <svg viewBox="0 0 24 24" fill="#47A248"><path d="M17.193 9.555c-1.264-5.58-4.252-7.414-4.573-8.115-.28-.394-.53-.954-.735-1.44-.036.495-.055.685-.523 1.184-.723.566-4.438 3.682-4.74 10.02-.282 5.912 4.27 9.435 4.888 9.884l.07.05A73.49 73.49 0 0111.91 24h.481c.114-1.032.284-2.056.51-3.07.417-.296.604-.463.85-.693a11.342 11.342 0 003.639-8.464c.01-.814-.087-1.748-.198-2.218z"/></svg>
+            MongoDB
+          </span>
+          <span class="tag">
+            <!-- Database SQL -->
+            <svg viewBox="0 0 24 24" fill="none" stroke="#4d8fff" stroke-width="1.8"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+            SQL / NoSQL
+          </span>
+          <span class="tag">
+            <!-- REST API -->
+            <svg viewBox="0 0 24 24" fill="none" stroke="#4d8fff" stroke-width="1.8"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg>
+            REST APIs
+          </span>
+        </div>
+      </div>
+
+      <!-- Tools -->
+      <div class="sk-card rv" data-d="2">
+        <div class="sk-top">
+          <div class="sk-ico">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#4d8fff" stroke-width="1.8"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>
           </div>
-          <div class="highlight-item">
-            <div class="icon">🚀</div>
-            <h4>Agile / Git</h4>
-            <p>إدارة مشاريع ضمن فرق احترافية</p>
+          <div><h3>Tools & DevOps</h3><p>Workflow / Deploy</p></div>
+        </div>
+        <div class="tags">
+          <span class="tag">
+            <!-- Git -->
+            <svg viewBox="0 0 24 24" fill="#F05032"><path d="M23.546 10.93L13.067.452a1.55 1.55 0 00-2.188 0L8.708 2.627l2.76 2.76a1.838 1.838 0 012.327 2.334l2.658 2.659a1.838 1.838 0 011.9 3.002 1.836 1.836 0 01-2.271-2.723L13.44 8.313v6.711a1.836 1.836 0 01.489 3.641 1.835 1.835 0 01-1.956-2.371l-2.654-2.649a1.836 1.836 0 01-2.271-2.723 1.836 1.836 0 012.723 0l2.742 2.742-.006-6.723a1.84 1.84 0 01-.481-3.58 1.838 1.838 0 012.262 2.262 1.838 1.838 0 01-1.781 1.317v6.723"/></svg>
+            Git
+          </span>
+          <span class="tag">
+            <!-- GitHub -->
+            <svg viewBox="0 0 24 24" fill="#fff"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+            GitHub
+          </span>
+          <span class="tag">
+            <!-- Vercel -->
+            <svg viewBox="0 0 24 24" fill="#fff"><path d="M24 22.525H0l12-21.05 12 21.05z"/></svg>
+            Vercel
+          </span>
+          <span class="tag">
+            <!-- VS Code -->
+            <svg viewBox="0 0 24 24" fill="#007ACC"><path d="M23.15 2.587L18.21.21a1.494 1.494 0 00-1.705.29l-9.46 8.63-4.12-3.128a.999.999 0 00-1.276.057L.327 7.261A1 1 0 00.326 8.74L3.899 12 .326 15.26a1 1 0 00.001 1.479L1.65 17.94a.999.999 0 001.276.057l4.12-3.128 9.46 8.63a1.492 1.492 0 001.704.29l4.942-2.377A1.5 1.5 0 0024 20.06V3.939a1.5 1.5 0 00-.85-1.352zm-5.146 14.861L10.826 12l7.178-5.448v10.896z"/></svg>
+            VS Code
+          </span>
+          <span class="tag">
+            <!-- Agile -->
+            <svg viewBox="0 0 24 24" fill="none" stroke="#4d8fff" stroke-width="1.8"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+            Agile / Scrum
+          </span>
+        </div>
+      </div>
+
+      <!-- Design -->
+      <div class="sk-card rv" data-d="3">
+        <div class="sk-top">
+          <div class="sk-ico">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#4d8fff" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="M8.56 2.75c4.37 6.03 6.02 9.42 8.03 17.72m2.54-15.38c-3.72 4.35-8.94 5.66-16.88 5.85m19.5 1.9c-3.5-.93-6.63-.82-8.94 0-2.58.92-5.01 2.86-7.44 6.32"/></svg>
           </div>
+          <div><h3>Design</h3><p>Visual / Creative</p></div>
+        </div>
+        <div class="tags">
+          <span class="tag">
+            <!-- Illustrator -->
+            <svg viewBox="0 0 24 24" fill="#FF9A00"><path d="M4.545 0A4.545 4.545 0 000 4.545v14.91A4.545 4.545 0 004.545 24h14.91A4.545 4.545 0 0024 19.455V4.545A4.545 4.545 0 0019.455 0H4.545zM9.447 16.28H7.75l-.587-1.862H4.71l-.56 1.862H2.5l2.483-7.55h1.974l2.49 7.55zm5.786 0h-1.47v-.72c-.208.253-.457.454-.747.604a2.02 2.02 0 01-.931.22c-.648 0-1.182-.248-1.6-.745-.42-.496-.63-1.17-.63-2.022 0-.874.217-1.562.65-2.063.433-.501.987-.752 1.663-.752.614 0 1.107.226 1.48.678v-2.7h1.585v7.5zm5.653-1.011c0 .296-.076.543-.228.74a1.414 1.414 0 01-.588.455c-.24.1-.511.15-.812.15-.527 0-.95-.126-1.27-.378-.32-.252-.51-.62-.57-1.104h1.48c.022.175.082.305.181.39.1.085.23.128.39.128.126 0 .225-.03.295-.088.07-.059.105-.137.105-.235 0-.127-.067-.23-.2-.309-.133-.079-.37-.168-.71-.268-.377-.108-.677-.22-.9-.337a1.486 1.486 0 01-.534-.46c-.131-.189-.197-.427-.197-.714 0-.27.07-.508.21-.713.14-.205.339-.364.597-.476.258-.112.557-.168.897-.168.507 0 .914.12 1.222.36.308.24.488.572.541.997h-1.5c-.017-.137-.066-.24-.148-.31-.082-.07-.194-.105-.336-.105-.11 0-.196.027-.259.08a.264.264 0 00-.094.211c0 .12.066.217.197.292.132.075.362.158.691.248.375.107.677.22.903.34.227.12.406.272.537.458z"/></svg>
+            Adobe Illustrator
+          </span>
+          <span class="tag">
+            <!-- Figma -->
+            <svg viewBox="0 0 24 24" fill="#F24E1E"><path d="M15.852 8.981h-4.588V0h4.588c2.476 0 4.49 2.014 4.49 4.49s-2.014 4.491-4.49 4.491zM12.735 7.51h3.117c1.665 0 3.019-1.355 3.019-3.019s-1.354-3.019-3.019-3.019h-3.117V7.51zm0 1.471H8.148c-2.476 0-4.49-2.014-4.49-4.49S5.672 0 8.148 0h4.588v8.981zm-4.587-7.51c-1.665 0-3.019 1.355-3.019 3.019s1.354 3.019 3.019 3.019h3.117V1.471H8.148zm4.587 15.019H8.148c-2.476 0-4.49-2.014-4.49-4.49s2.014-4.49 4.49-4.49h4.588v8.98zM8.148 10.980c-1.665 0-3.019 1.355-3.019 3.019s1.354 3.019 3.019 3.019h3.117v-6.038H8.148zm0 8.981c-2.476 0-4.49 2.014-4.49 4.49s2.014 4.49 4.49 4.49 4.49-2.014 4.49-4.49-2.014-4.49-4.49-4.49zm0 7.51c-1.665 0-3.019-1.355-3.019-3.019s1.354-3.019 3.019-3.019 3.019 1.354 3.019 3.019-1.354 3.019-3.019 3.019z"/></svg>
+            Figma
+          </span>
+          <span class="tag">
+            <!-- UI/UX (eye icon) -->
+            <svg viewBox="0 0 24 24" fill="none" stroke="#4d8fff" stroke-width="1.8"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+            UI / UX Design
+          </span>
+          <span class="tag">
+            <!-- Brand identity -->
+            <svg viewBox="0 0 24 24" fill="none" stroke="#4d8fff" stroke-width="1.8"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+            Visual Identity
+          </span>
+        </div>
+      </div>
+
+    </div><!-- /skills-g -->
+  </div>
+</section>
+
+<!-- ============ PROJECTS ============ -->
+<section id="projects" class="projects">
+  <div style="max-width:1060px;margin:0 auto">
+    <div class="sec-hdr">
+      <div class="sec-tag rv">Portfolio</div>
+      <h2 class="sec-h rv">Featured <span>Projects</span></h2>
+      <p class="sec-sub rv">Selected high-impact projects built with focus on performance, scalability and outstanding user experience.</p>
+    </div>
+    <div class="proj-g">
+
+      <div class="proj-card rv">
+        <div class="proj-top">
+          <div class="proj-emoji">🛒</div>
+          <div class="proj-ov">
+            <a href="#" class="p-act" title="Live Demo"><svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+            <a href="#" class="p-act" title="Source"><svg viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></a>
+          </div>
+        </div>
+        <div class="proj-body">
+          <div class="pchips"><span class="pchip">React.js</span><span class="pchip">Node.js</span><span class="pchip">MongoDB</span></div>
+          <h3>E-Commerce Platform</h3>
+          <p>Full-stack e-commerce solution with React frontend, Node.js backend, payment integration and inventory management system.</p>
+        </div>
+      </div>
+
+      <div class="proj-card rv" data-d="1">
+        <div class="proj-top">
+          <div class="proj-emoji">📊</div>
+          <div class="proj-ov">
+            <a href="#" class="p-act"><svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+            <a href="#" class="p-act"><svg viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></a>
+          </div>
+        </div>
+        <div class="proj-body">
+          <div class="pchips"><span class="pchip">React.js</span><span class="pchip">REST API</span><span class="pchip">CSS3</span></div>
+          <h3>Admin Dashboard</h3>
+          <p>Comprehensive admin panel with interactive charts, user management, advanced filtering, and CSV report exports.</p>
+        </div>
+      </div>
+
+      <div class="proj-card rv" data-d="2">
+        <div class="proj-top">
+          <div class="proj-emoji">💬</div>
+          <div class="proj-ov">
+            <a href="#" class="p-act"><svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+            <a href="#" class="p-act"><svg viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></a>
+          </div>
+        </div>
+        <div class="proj-body">
+          <div class="pchips"><span class="pchip">JavaScript</span><span class="pchip">WebSocket</span><span class="pchip">Node.js</span></div>
+          <h3>Real-Time Chat App</h3>
+          <p>Instant messaging application using WebSockets supporting group and private chats with real-time notifications.</p>
+        </div>
+      </div>
+
+      <div class="proj-card rv" data-d="1">
+        <div class="proj-top">
+          <div class="proj-emoji">🎨</div>
+          <div class="proj-ov">
+            <a href="#" class="p-act"><svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+            <a href="#" class="p-act"><svg viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></a>
+          </div>
+        </div>
+        <div class="proj-body">
+          <div class="pchips"><span class="pchip">HTML5</span><span class="pchip">CSS3</span><span class="pchip">Illustrator</span></div>
+          <h3>Brand Identity Website</h3>
+          <p>Startup website merging coding and Adobe Illustrator design skills — covering UI design and complete visual identity.</p>
+        </div>
+      </div>
+
+      <div class="proj-card rv" data-d="2">
+        <div class="proj-top">
+          <div class="proj-emoji">✅</div>
+          <div class="proj-ov">
+            <a href="#" class="p-act"><svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+            <a href="#" class="p-act"><svg viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></a>
+          </div>
+        </div>
+        <div class="proj-body">
+          <div class="pchips"><span class="pchip">React.js</span><span class="pchip">Tailwind</span><span class="pchip">API</span></div>
+          <h3>Task Manager App</h3>
+          <p>Full-featured task manager with Drag & Drop, advanced filters, and real-time server data synchronization.</p>
+        </div>
+      </div>
+
+      <div class="proj-card rv" data-d="3">
+        <div class="proj-top">
+          <div class="proj-emoji">🔐</div>
+          <div class="proj-ov">
+            <a href="#" class="p-act"><svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+            <a href="#" class="p-act"><svg viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></a>
+          </div>
+        </div>
+        <div class="proj-body">
+          <div class="pchips"><span class="pchip">Node.js</span><span class="pchip">JWT</span><span class="pchip">SQL</span></div>
+          <h3>Auth System</h3>
+          <p>Complete authentication & role-based authorization system using JWT, bcrypt and SQL with high security standards.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ EXPERIENCE ============ -->
+<section id="experience" class="experience">
+  <div class="exp-in">
+    <div class="sec-hdr">
+      <div class="sec-tag rv">Career</div>
+      <h2 class="sec-h rv">Professional <span>Journey</span></h2>
+      <p class="sec-sub rv">My path through the world of software development.</p>
+    </div>
+    <div class="timeline">
+      <div class="tl-item rv">
+        <div class="tl-dot"></div>
+        <div class="tl-date">2024 — Present</div>
+        <div class="tl-card">
+          <h3>Senior Full Stack Developer</h3>
+          <div class="tl-co">Freelance & Independent Projects</div>
+          <p>Building production-grade full-stack web applications. React on the frontend, Node.js on the backend. Focus on performance, security and scalable architecture across all projects.</p>
+        </div>
+      </div>
+      <div class="tl-item rv" data-d="1">
+        <div class="tl-dot"></div>
+        <div class="tl-date">2023 — 2024</div>
+        <div class="tl-card">
+          <h3>Full Stack Developer</h3>
+          <div class="tl-co">Personal & Academic Projects</div>
+          <p>Developed and delivered multiple projects spanning frontend and backend, continuously learning new technologies and applying best practices in code quality and system design.</p>
+        </div>
+      </div>
+      <div class="tl-item rv" data-d="2">
+        <div class="tl-dot"></div>
+        <div class="tl-date">2022 — 2023</div>
+        <div class="tl-card">
+          <h3>Frontend Developer</h3>
+          <div class="tl-co">Early Career Stage</div>
+          <p>Specialized in frontend development with HTML, CSS, JavaScript and React. Built a strong foundation in UX/UI design and responsive, interactive interface development.</p>
+        </div>
+      </div>
+      <div class="tl-item rv" data-d="3">
+        <div class="tl-dot"></div>
+        <div class="tl-date">Ongoing</div>
+        <div class="tl-card">
+          <h3>Computer Science Student</h3>
+          <div class="tl-co">University — Algeria</div>
+          <p>Academic study of computer science deepens theoretical understanding of algorithms and data structures — directly applied in real-world programming projects.</p>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- =========================================
-       SKILLS
-       ========================================= -->
-  <section id="skills" class="skills">
-    <div class="skills-container">
-      <div class="section-header">
-        <div class="section-tag reveal">المهارات التقنية</div>
-        <h2 class="section-title reveal">The <span>Tech Stack</span></h2>
-        <p class="section-subtitle reveal">التقنيات التي أستخدمها لبناء تجارب رقمية استثنائية من الفكرة إلى الإنتاج.</p>
-      </div>
-
-      <div class="skills-grid">
-        <div class="skill-card reveal">
-          <div class="skill-card-header">
-            <div class="skill-icon">🖥️</div>
-            <div>
-              <h3>Frontend</h3>
-              <p>الواجهة الأمامية</p>
-            </div>
+<!-- ============ CONTACT ============ -->
+<section id="contact" class="contact">
+  <div style="max-width:860px;margin:0 auto">
+    <div class="sec-hdr" style="text-align:center">
+      <div class="sec-tag rv" style="justify-content:center">Contact</div>
+      <h2 class="sec-h rv">Let's <span>Work Together</span></h2>
+      <p class="sec-sub rv" style="margin:0 auto">Have a project in mind or want to say hello? I'm always open to new opportunities and creative collaborations.</p>
+    </div>
+  </div>
+  <div class="contact-g rv">
+    <!-- Info -->
+    <div class="contact-info">
+      <h3>Get In Touch 👋</h3>
+      <p>I'll get back to you within 24 hours. Don't hesitate to reach out for any collaboration or inquiry.</p>
+      <div class="clinks">
+        <div class="clink">
+          <div class="cl-ico">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#4d8fff" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
           </div>
-          <div class="skill-tags">
-            <span class="skill-tag">HTML5</span>
-            <span class="skill-tag">CSS3</span>
-            <span class="skill-tag">JavaScript</span>
-            <span class="skill-tag">React.js</span>
-            <span class="skill-tag">Tailwind CSS</span>
-            <span class="skill-tag">Responsive Design</span>
-          </div>
+          <div><small>Email</small><span>fadi.medkour@email.com</span></div>
         </div>
-
-        <div class="skill-card reveal" data-delay="100">
-          <div class="skill-card-header">
-            <div class="skill-icon">⚙️</div>
-            <div>
-              <h3>Backend</h3>
-              <p>الواجهة الخلفية</p>
-            </div>
+        <div class="clink">
+          <div class="cl-ico">
+            <svg viewBox="0 0 24 24" fill="#0A66C2"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
           </div>
-          <div class="skill-tags">
-            <span class="skill-tag">Node.js</span>
-            <span class="skill-tag">REST APIs</span>
-            <span class="skill-tag">SQL</span>
-            <span class="skill-tag">NoSQL</span>
-            <span class="skill-tag">MongoDB</span>
-            <span class="skill-tag">Express.js</span>
-          </div>
+          <div><small>LinkedIn</small><span>linkedin.com/in/fadi-medkour</span></div>
         </div>
-
-        <div class="skill-card reveal" data-delay="200">
-          <div class="skill-card-header">
-            <div class="skill-icon">🛠️</div>
-            <div>
-              <h3>DevOps & Tools</h3>
-              <p>الأدوات والبنية التحتية</p>
-            </div>
+        <div class="clink">
+          <div class="cl-ico">
+            <svg viewBox="0 0 24 24" fill="#fff"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
           </div>
-          <div class="skill-tags">
-            <span class="skill-tag">Git</span>
-            <span class="skill-tag">GitHub</span>
-            <span class="skill-tag">Agile / Scrum</span>
-            <span class="skill-tag">Vercel</span>
-            <span class="skill-tag">VS Code</span>
-          </div>
+          <div><small>GitHub</small><span>github.com/fadi-medkour</span></div>
         </div>
-
-        <div class="skill-card reveal" data-delay="300">
-          <div class="skill-card-header">
-            <div class="skill-icon">🎨</div>
-            <div>
-              <h3>Design</h3>
-              <p>التصميم والإبداع</p>
-            </div>
+        <div class="clink">
+          <div class="cl-ico">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#4d8fff" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
           </div>
-          <div class="skill-tags">
-            <span class="skill-tag">Adobe Illustrator</span>
-            <span class="skill-tag">UI/UX Design</span>
-            <span class="skill-tag">Visual Identity</span>
-            <span class="skill-tag">Figma</span>
-          </div>
+          <div><small>Location</small><span>Algiers, Algeria 🇩🇿</span></div>
         </div>
       </div>
     </div>
-  </section>
 
-  <!-- =========================================
-       PROJECTS
-       ========================================= -->
-  <section id="projects" class="projects">
-    <div class="projects-container">
-      <div class="section-header">
-        <div class="section-tag reveal">المشاريع</div>
-        <h2 class="section-title reveal">Featured <span>Creations</span></h2>
-        <p class="section-subtitle reveal">مجموعة مختارة من المشاريع التي بنيتها بشغف وتركيز على الجودة والأداء.</p>
+    <!-- Form -->
+    <form class="cform" id="cform">
+      <div class="fg">
+        <label>Full Name</label>
+        <input type="text" placeholder="Your name..." required/>
       </div>
-
-      <div class="projects-grid">
-        <div class="project-card reveal">
-          <div class="project-thumb">
-            🛒
-            <div class="project-thumb-overlay">
-              <div class="project-link-btn" title="عرض المشروع">🔗</div>
-              <div class="project-link-btn" title="الكود">💻</div>
-            </div>
-          </div>
-          <div class="project-body">
-            <div class="project-tags">
-              <span class="project-tag">React.js</span>
-              <span class="project-tag">Node.js</span>
-              <span class="project-tag">MongoDB</span>
-            </div>
-            <h3>منصة تجارة إلكترونية</h3>
-            <p>منصة متكاملة للتجارة الإلكترونية بواجهة React وخلفية Node.js، مع نظام دفع وإدارة مخزون متكامل.</p>
-          </div>
-        </div>
-
-        <div class="project-card reveal" data-delay="100">
-          <div class="project-thumb">
-            📊
-            <div class="project-thumb-overlay">
-              <div class="project-link-btn">🔗</div>
-              <div class="project-link-btn">💻</div>
-            </div>
-          </div>
-          <div class="project-body">
-            <div class="project-tags">
-              <span class="project-tag">React.js</span>
-              <span class="project-tag">REST API</span>
-              <span class="project-tag">CSS3</span>
-            </div>
-            <h3>لوحة تحكم إدارية</h3>
-            <p>لوحة تحكم متكاملة مع رسوم بيانية تفاعلية، إدارة مستخدمين، وتصدير تقارير بأداء عالٍ وتصميم احترافي.</p>
-          </div>
-        </div>
-
-        <div class="project-card reveal" data-delay="200">
-          <div class="project-thumb">
-            💬
-            <div class="project-thumb-overlay">
-              <div class="project-link-btn">🔗</div>
-              <div class="project-link-btn">💻</div>
-            </div>
-          </div>
-          <div class="project-body">
-            <div class="project-tags">
-              <span class="project-tag">JavaScript</span>
-              <span class="project-tag">WebSocket</span>
-              <span class="project-tag">Node.js</span>
-            </div>
-            <h3>تطبيق محادثة فوري</h3>
-            <p>تطبيق دردشة فوري بتقنية WebSocket يدعم المحادثات الجماعية والخاصة مع إشعارات في الوقت الفعلي.</p>
-          </div>
-        </div>
-
-        <div class="project-card reveal" data-delay="300">
-          <div class="project-thumb">
-            🎨
-            <div class="project-thumb-overlay">
-              <div class="project-link-btn">🔗</div>
-              <div class="project-link-btn">💻</div>
-            </div>
-          </div>
-          <div class="project-body">
-            <div class="project-tags">
-              <span class="project-tag">HTML5</span>
-              <span class="project-tag">CSS3</span>
-              <span class="project-tag">JavaScript</span>
-            </div>
-            <h3>موقع هوية بصرية</h3>
-            <p>موقع تعريفي لشركة ناشئة بتصميم احترافي يجمع بين مهاراتي في البرمجة وAdobe Illustrator.</p>
-          </div>
-        </div>
-
-        <div class="project-card reveal" data-delay="400">
-          <div class="project-thumb">
-            📱
-            <div class="project-thumb-overlay">
-              <div class="project-link-btn">🔗</div>
-              <div class="project-link-btn">💻</div>
-            </div>
-          </div>
-          <div class="project-body">
-            <div class="project-tags">
-              <span class="project-tag">React.js</span>
-              <span class="project-tag">Tailwind</span>
-              <span class="project-tag">API</span>
-            </div>
-            <h3>تطبيق إدارة المهام</h3>
-            <p>تطبيق متكامل لإدارة المهام مع ميزات Drag & Drop، فلترة متقدمة، ومزامنة بيانات مع الخادم.</p>
-          </div>
-        </div>
-
-        <div class="project-card reveal" data-delay="500">
-          <div class="project-thumb">
-            🔐
-            <div class="project-thumb-overlay">
-              <div class="project-link-btn">🔗</div>
-              <div class="project-link-btn">💻</div>
-            </div>
-          </div>
-          <div class="project-body">
-            <div class="project-tags">
-              <span class="project-tag">Node.js</span>
-              <span class="project-tag">JWT</span>
-              <span class="project-tag">SQL</span>
-            </div>
-            <h3>نظام مصادقة متكامل</h3>
-            <p>نظام تسجيل دخول وإدارة صلاحيات متكامل باستخدام JWT، bcrypt وقاعدة بيانات SQL مع حماية عالية.</p>
-          </div>
-        </div>
+      <div class="fg">
+        <label>Email Address</label>
+        <input type="email" placeholder="email@example.com" required/>
       </div>
-    </div>
-  </section>
-
-  <!-- =========================================
-       EXPERIENCE
-       ========================================= -->
-  <section id="experience" class="experience">
-    <div class="experience-container">
-      <div class="section-header">
-        <div class="section-tag reveal">الخبرة</div>
-        <h2 class="section-title reveal">Professional <span>Journey</span></h2>
-        <p class="section-subtitle reveal">مسيرتي المهنية في عالم تطوير البرمجيات.</p>
+      <div class="fg">
+        <label>Subject</label>
+        <input type="text" placeholder="What's it about?"/>
       </div>
-
-      <div class="timeline">
-        <div class="timeline-item reveal">
-          <div class="timeline-dot"></div>
-          <div class="timeline-date">2024 — الحاضر</div>
-          <div class="timeline-card">
-            <h3>Senior Full Stack Developer</h3>
-            <div class="timeline-company">مشاريع مستقلة وفريلانس</div>
-            <p>بناء تطبيقات ويب متكاملة بمستوى احترافي، من الواجهة الأمامية باستخدام React إلى الواجهة الخلفية بـ Node.js. التركيز على الأداء، الأمان، وقابلية التوسع في جميع المشاريع.</p>
-          </div>
-        </div>
-
-        <div class="timeline-item reveal" data-delay="100">
-          <div class="timeline-dot"></div>
-          <div class="timeline-date">2023 — 2024</div>
-          <div class="timeline-card">
-            <h3>Full Stack Developer</h3>
-            <div class="timeline-company">مشاريع شخصية وأكاديمية</div>
-            <p>تطوير وتسليم مشاريع متعددة تجمع بين Frontend وBackend، مع التعلم المستمر لتقنيات جديدة وتطبيق أفضل الممارسات في كتابة الكود.</p>
-          </div>
-        </div>
-
-        <div class="timeline-item reveal" data-delay="200">
-          <div class="timeline-dot"></div>
-          <div class="timeline-date">2022 — 2023</div>
-          <div class="timeline-card">
-            <h3>Frontend Developer</h3>
-            <div class="timeline-company">بداية المسيرة التقنية</div>
-            <p>التخصص في تطوير الواجهات الأمامية باستخدام HTML، CSS، JavaScript وReact. بناء قاعدة قوية في تصميم UX/UI وتطوير واجهات تفاعلية وسريعة الاستجابة.</p>
-          </div>
-        </div>
-
-        <div class="timeline-item reveal" data-delay="300">
-          <div class="timeline-dot"></div>
-          <div class="timeline-date">الحاضر</div>
-          <div class="timeline-card">
-            <h3>طالب جامعي</h3>
-            <div class="timeline-company">الجامعة — علوم الحاسوب</div>
-            <p>الدراسة الأكاديمية في علوم الحاسوب تعزز الخلفية النظرية وتطور الفهم العميق للخوارزميات وبنى البيانات، وهو ما أطبقه عمليًا في مشاريعي البرمجية.</p>
-          </div>
-        </div>
+      <div class="fg">
+        <label>Message</label>
+        <textarea placeholder="Tell me about your project..." required></textarea>
       </div>
-    </div>
-  </section>
+      <button type="submit" class="fsub" id="fsub">
+        <svg viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+        Send Message
+      </button>
+    </form>
+  </div>
+</section>
 
-  <!-- =========================================
-       CONTACT
-       ========================================= -->
-  <section id="contact" class="contact">
-    <div style="max-width:1200px; margin: 0 auto;">
-      <div class="section-header" style="text-align:center;">
-        <div class="section-tag reveal" style="justify-content:center;">تواصل معي</div>
-        <h2 class="section-title reveal">Let's <span>Connect</span></h2>
-        <p class="section-subtitle reveal" style="margin: 0 auto;">هل لديك مشروع في ذهنك؟ أو تريد فقط أن تقول مرحبًا؟ أنا هنا!</p>
-      </div>
-    </div>
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="f-logo">fadi<span>.</span>dev</div>
+  <p>© 2026 Fadi Medkour · Built with HTML, CSS & JS</p>
+  <div class="f-links">
+    <a href="#" class="f-link" title="GitHub">
+      <svg viewBox="0 0 24 24" fill="#fff"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+    </a>
+    <a href="#" class="f-link" title="LinkedIn">
+      <svg viewBox="0 0 24 24" fill="#0A66C2"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+    </a>
+    <a href="#" class="f-link" title="Email">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+    </a>
+  </div>
+</footer>
 
-    <div class="contact-container reveal">
-      <!-- Info -->
-      <div class="contact-info">
-        <h3>نتحدث؟ 👋</h3>
-        <p>سأرد عليك خلال 24 ساعة. لا تتردد في التواصل معي لأي فرصة تعاون أو استفسار.</p>
-        <div class="contact-links">
-          <div class="contact-link">
-            <div class="contact-link-icon">📧</div>
-            <div class="contact-link-text">
-              <small>البريد الإلكتروني</small>
-              <span>fadi.medkour@email.com</span>
-            </div>
-          </div>
-          <div class="contact-link">
-            <div class="contact-link-icon">💼</div>
-            <div class="contact-link-text">
-              <small>LinkedIn</small>
-              <span>linkedin.com/in/fadi-medkour</span>
-            </div>
-          </div>
-          <div class="contact-link">
-            <div class="contact-link-icon">🐙</div>
-            <div class="contact-link-text">
-              <small>GitHub</small>
-              <span>github.com/fadi-medkour</span>
-            </div>
-          </div>
-          <div class="contact-link">
-            <div class="contact-link-icon">📍</div>
-            <div class="contact-link-text">
-              <small>الموقع</small>
-              <span>الجزائر، الجزائر العاصمة</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Form -->
-      <form class="contact-form" onsubmit="return false;">
-        <div class="form-group">
-          <label>الاسم الكامل</label>
-          <input type="text" placeholder="اكتب اسمك هنا..." required />
-        </div>
-        <div class="form-group">
-          <label>البريد الإلكتروني</label>
-          <input type="email" placeholder="email@example.com" required />
-        </div>
-        <div class="form-group">
-          <label>الموضوع</label>
-          <input type="text" placeholder="ما موضوع رسالتك؟" />
-        </div>
-        <div class="form-group">
-          <label>الرسالة</label>
-          <textarea placeholder="اكتب رسالتك هنا..." required></textarea>
-        </div>
-        <button type="submit" class="form-submit">
-          📨 إرسال الرسالة
-        </button>
-      </form>
-    </div>
-  </section>
-
-  <!-- =========================================
-       FOOTER
-       ========================================= -->
-  <footer>
-    <div class="footer-logo">Fadi<span>.</span>dev</div>
-    <div class="social-links">
-      <div class="social-link" title="GitHub">🐙</div>
-      <div class="social-link" title="LinkedIn">💼</div>
-      <div class="social-link" title="Twitter">🐦</div>
-      <div class="social-link" title="Email">📧</div>
-    </div>
-    <p>مصنوع بـ ❤️ في الجزائر &nbsp;·&nbsp; © 2026 Fadi Medkour. جميع الحقوق محفوظة.</p>
-  </footer>
-
-  <script src="js/main.js"></script>
+<script src="js/main.js"></script>
 </body>
 </html>
