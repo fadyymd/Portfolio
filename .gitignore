@@ -1,1 +1,27 @@
-src/assets/svg/generated/
+# Ignore assets (images, etc.)
+
+src/assets/
+
+# Ignore svg icons
+
+src/svg/
+
+# System files
+
+.DS_Store
+Thumbs.db
+
+# Editor
+
+.vscode/
+.idea/
+
+# Logs
+
+*.log
+
+# Temp / cache
+
+tmp/
+temp/
+.cache/
