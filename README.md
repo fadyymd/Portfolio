@@ -53,4 +53,4 @@ portfolio/
 - **Netlify**: اسحب المجلد على netlify.com
 
 ---
-صُنع بـ ❤️ في الجزائر · © 2026 Fadi Medkour
+
