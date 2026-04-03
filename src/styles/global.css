@@ -1,0 +1,154 @@
+/* ================================================================
+   FADI MEDKOUR — Portfolio
+   Design: Dark editorial · cinematic · premium
+   Fonts: Syne (display) · Space Mono (code) · Inter (body)
+================================================================ */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box }
+
+:root {
+  /* Colors */
+  --bg:      #04070f;
+  --bg1:     #070d1a;
+  --bg2:     #0a1220;
+  --bg3:     #0d1929;
+  --accent:  #1563ff;
+  --acl:     #4d8bff;
+  --acc:     #00d4ff;
+  --acm:     #6c3aed;
+  --gold:    #f0b429;
+  --bdr:     rgba(21, 99, 255, .12);
+  --bdr2:    rgba(21, 99, 255, .35);
+  --bgl:     rgba(21, 99, 255, .07);
+  --t1:      #eef2ff;
+  --t2:      #6b8299;
+  --t3:      #2a3e55;
+
+  /* Typography */
+  --ff-display: 'Syne', sans-serif;
+  --ff-body:    'Inter', sans-serif;
+  --ff-mono:    'Space Mono', monospace;
+
+  /* Misc */
+  --r:    14px;
+  --ease: cubic-bezier(.4,0,.2,1);
+  --ease-out: cubic-bezier(0,.6,.4,1);
+}
+
+html { scroll-behavior: smooth; scroll-padding-top: 72px }
+body {
+  font-family: var(--ff-body);
+  background: var(--bg);
+  color: var(--t1);
+  line-height: 1.65;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+a { text-decoration: none; color: inherit }
+img { max-width: 100%; display: block }
+button { cursor: pointer; font-family: var(--ff-body) }
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 3px }
+::-webkit-scrollbar-track { background: var(--bg) }
+::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 3px }
+
+/* Selection */
+::selection { background: var(--accent); color: #fff }
+
+/* Noise overlay */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+  opacity: .5;
+}
+
+/* ── CURSOR GLOW ── */
+#cglow {
+  position: fixed;
+  width: 480px;
+  height: 480px;
+  pointer-events: none;
+  z-index: 0;
+  background: radial-gradient(circle, rgba(21,99,255,.06) 0%, transparent 65%);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  will-change: left, top;
+}
+
+/* ── SCROLL REVEAL ── */
+.rv {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity .7s var(--ease), transform .7s var(--ease);
+  transition-delay: calc(var(--i,0) * 80ms);
+}
+.rv.on { opacity: 1; transform: none }
+
+/* ── SECTION COMMON ── */
+section { padding: 110px 6%; position: relative; z-index: 1 }
+.section-label {
+  display: inline-flex;
+  align-items: center;
+  gap: .6rem;
+  font-family: var(--ff-mono);
+  font-size: .65rem;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: .18em;
+  margin-bottom: .8rem;
+}
+.section-label::before {
+  content: '';
+  width: 22px;
+  height: 1.5px;
+  background: var(--accent);
+}
+.section-title {
+  font-family: var(--ff-display);
+  font-size: clamp(2rem, 3.8vw, 3.2rem);
+  font-weight: 800;
+  letter-spacing: -.04em;
+  line-height: 1.08;
+  margin-bottom: .9rem;
+}
+.section-title em {
+  font-style: normal;
+  background: linear-gradient(135deg, var(--accent), var(--acc));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.section-sub {
+  color: var(--t2);
+  font-size: .95rem;
+  max-width: 520px;
+  line-height: 1.8;
+}
+.sec-hdr { margin-bottom: 4rem }
+.sec-hdr-center { text-align: center }
+.sec-hdr-center .section-label { justify-content: center }
+.sec-hdr-center .section-sub { margin: 0 auto }
+
+/* ── KEYFRAMES ── */
+@keyframes fadeUp { from { opacity:0; transform:translateY(28px) } to { opacity:1; transform:none } }
+@keyframes blink  { 0%,100%{opacity:1} 50%{opacity:0} }
+@keyframes pulse  { 0%,100%{box-shadow:0 0 0 0 rgba(0,212,255,.5)} 60%{box-shadow:0 0 0 7px rgba(0,212,255,0)} }
+@keyframes spin-glow { to { transform: rotate(360deg) } }
+@keyframes orb-float { 0%,100%{transform:translate(0,0) scale(1)} 50%{transform:translate(-18px,18px) scale(1.04)} }
+@keyframes grad-shift { 0%{background-position:0%} 50%{background-position:100%} 100%{background-position:0%} }
+@keyframes bob { 0%,100%{transform:translateX(-50%) translateY(0)} 50%{transform:translateX(-50%) translateY(7px)} }
+@keyframes react-spin { to { transform: rotate(360deg) } }
+@keyframes shimmer { 0%{left:-100%} 100%{left:200%} }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  section { padding: 80px 5% }
+}
+@media (max-width: 640px) {
+  section { padding: 70px 4% }
+  .section-title { letter-spacing: -.03em }
+}
