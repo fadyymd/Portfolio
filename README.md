@@ -2,7 +2,7 @@
 
 > Personal portfolio built with **React + Vite** — dark editorial design, cinematic animations, fully responsive.
 
-🌐 **Live:** [abdulbasit-005.vercel.app](https://abdulbasit-005.vercel.app/) *(reference)*
+
 
 ---
 
@@ -110,72 +110,7 @@ portfolio/
 
 ---
 
-## 🚀 Getting Started
 
-### 1. Install dependencies
-
-```bash
-npm install
-```
-
-### 2. Run development server
-
-```bash
-npm run dev
-```
-
-Opens at → **http://localhost:5173**
-
-### 3. Build for production
-
-```bash
-npm run build
-```
-
-Output goes to `dist/`
-
-### 4. Preview production build locally
-
-```bash
-npm run preview
-```
-
----
-
-## 🌐 Deployment
-
-### ▶ Vercel (recommended)
-
-```bash
-# Option A — Vercel CLI
-npm i -g vercel
-vercel
-
-# Option B — drag & drop
-# Go to vercel.com → New Project → Import from GitHub
-```
-
-### ▶ Netlify
-
-```bash
-npm run build
-# Drag the dist/ folder to netlify.com/drop
-```
-
-### ▶ GitHub Pages
-
-```bash
-# Install gh-pages
-npm install --save-dev gh-pages
-
-# Add to package.json scripts:
-# "deploy": "gh-pages -d dist"
-
-npm run build
-npm run deploy
-```
-
----
 
 ## ✏️ Customisation
 
