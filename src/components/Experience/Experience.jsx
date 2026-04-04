@@ -1,80 +1,118 @@
+import { useState } from 'react'
 import './Experience.css'
 
 const TIMELINE = [
   {
-    period:   '2024 — Present',
-    title:    'Senior Full Stack Developer',
-    company:  'Freelance & Independent Projects',
-    bullets:  [
+    period:  '2024 — Present',
+    title:   'Senior Full Stack Developer',
+    company: 'Freelance & Independent Projects',
+    tag:     'Current',
+    color:   '#1560f0',
+    bullets: [
       'Built production-grade full-stack applications with React on the frontend and Node.js on the backend.',
-      'Focused on performance, security and scalable architecture across all projects.',
-      'Delivered responsive UIs and robust REST APIs for clients across various industries.',
-      'Maintained clean, well-documented codebases following SOLID principles.',
+      'Delivered robust REST APIs, real-time WebSocket features and secure JWT authentication systems.',
+      'Focused on performance, scalability and clean architecture across all client projects.',
+      'Maintained well-documented codebases following SOLID principles and Agile sprints.',
     ],
   },
   {
-    period:   '2023 — 2024',
-    title:    'Full Stack Developer',
-    company:  'Personal & Academic Projects',
-    bullets:  [
-      'Developed multiple full-stack projects spanning frontend and backend layers.',
-      'Built real-time chat apps, e-commerce platforms, and admin dashboards.',
+    period:  '2023 — 2024',
+    title:   'Full Stack Developer',
+    company: 'Personal & Academic Projects',
+    tag:     'Previous',
+    color:   '#7c3aed',
+    bullets: [
+      'Developed multiple full-stack projects spanning frontend React UIs and backend Node.js APIs.',
+      'Built real-time chat apps, e-commerce platforms, and admin dashboards from scratch.',
       'Continuously adopted new technologies and best practices in system design.',
-      'Collaborated with peers using Git workflows and Agile/Scrum methodology.',
+      'Collaborated using Git workflows and applied Agile/Scrum methodology.',
     ],
   },
   {
-    period:   '2022 — 2023',
-    title:    'Frontend Developer',
-    company:  'Early Career Stage',
-    bullets:  [
-      'Specialised in frontend development with HTML5, CSS3, JavaScript and React.',
-      'Built a strong foundation in UX/UI design and responsive interface development.',
-      'Explored component architecture, state management and animation libraries.',
+    period:  '2022 — 2023',
+    title:   'Frontend Developer',
+    company: 'Early Career Stage',
+    tag:     'Foundation',
+    color:   '#10b981',
+    bullets: [
+      'Specialised in HTML5, CSS3, JavaScript and React component-based architecture.',
+      'Built responsive, animated UIs with deep focus on UX and accessibility.',
+      'Explored state management, animation libraries and performance optimisation.',
     ],
   },
   {
-    period:   'Ongoing',
-    title:    'Computer Science Student',
-    company:  'University — Algeria 🇩🇿',
-    bullets:  [
-      'Academic study deepens theoretical understanding of algorithms and data structures.',
-      'Knowledge directly applied in real-world full-stack projects.',
-      'Active contributor to local developer community and open-source projects.',
+    period:  'Ongoing',
+    title:   'Computer Science Student',
+    company: 'University — Algeria 🇩🇿',
+    tag:     'Academic',
+    color:   '#f0b429',
+    bullets: [
+      'Academic study strengthens theoretical knowledge of algorithms and data structures.',
+      'Directly applies computer science fundamentals in real-world full-stack projects.',
+      'Active contributor to the local developer community and open-source ecosystem.',
     ],
   },
 ]
 
 export default function Experience() {
+  const [expanded, setExpanded] = useState(null)
+
   return (
     <section id="experience" className="experience">
       <div className="exp-wrap">
         <div className="sec-hdr rv">
-          <div className="section-label">Professional Journey</div>
+          <div className="section-badge">Professional Journey</div>
           <h2 className="section-title">My <em>Experience</em></h2>
-          <p className="section-sub">My path through the world of software development.</p>
+          <p className="section-sub">My evolving path through the world of software development — from first lines to full systems.</p>
         </div>
 
         <div className="timeline">
           {TIMELINE.map((item, i) => (
-            <div className="tl-item rv" style={{ '--i': i }} key={i}>
-              {/* Dot & line */}
-              <div className="tl-left">
+            <div
+              className={`tl-item rv${expanded === i ? ' expanded' : ''}`}
+              style={{ '--i': i, '--c': item.color }}
+              key={i}
+            >
+              {/* Connector */}
+              <div className="tl-connector">
                 <div className="tl-dot">
-                  <div className="tl-dot-inner" />
+                  <div className="tl-dot-core" />
                 </div>
                 {i < TIMELINE.length - 1 && <div className="tl-line" />}
               </div>
 
-              {/* Content */}
-              <div className="tl-content">
-                <div className="tl-period">{item.period}</div>
-                <div className="tl-card">
-                  <h3 className="tl-title">{item.title}</h3>
-                  <div className="tl-company">{item.company}</div>
+              {/* Card */}
+              <div className="tl-card" onClick={() => setExpanded(expanded === i ? null : i)}>
+                {/* Top row */}
+                <div className="tl-card-top">
+                  <div className="tl-left-meta">
+                    <span className="tl-tag" style={{ background: `${item.color}22`, color: item.color, borderColor: `${item.color}44` }}>
+                      {item.tag}
+                    </span>
+                    <span className="tl-period">{item.period}</span>
+                  </div>
+                  <div className="tl-toggle">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" width="16" height="16"
+                      style={{ transform: expanded === i ? 'rotate(180deg)' : 'none', transition: 'transform .3s' }}>
+                      <polyline points="6 9 12 15 18 9"/>
+                    </svg>
+                  </div>
+                </div>
+
+                <h3 className="tl-title">{item.title}</h3>
+                <div className="tl-company">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" width="14" height="14"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+                  {item.company}
+                </div>
+
+                {/* Expandable bullets */}
+                <div className="tl-bullets-wrap">
                   <ul className="tl-bullets">
                     {item.bullets.map((b, j) => (
-                      <li key={j}>{b}</li>
+                      <li key={j}>
+                        <span className="tl-bullet-dot" style={{ background: item.color }} />
+                        {b}
+                      </li>
                     ))}
                   </ul>
                 </div>

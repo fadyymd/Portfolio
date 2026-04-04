@@ -1,8 +1,6 @@
-# 🚀 Fadi Medkour — Portfolio
+# 🚀 Fadi Medkour — Portfolio v2
 
-> Personal portfolio built with **React + Vite** — dark editorial design, cinematic animations, fully responsive.
-
-
+> Personal portfolio built with **React 18 + Vite** — dark cinematic design, rich animations, interactive components, fully responsive.
 
 ---
 
@@ -10,126 +8,119 @@
 
 ```
 portfolio/
-├── index.html                        ← HTML entry point
-├── vite.config.js                    ← Vite configuration
-├── package.json                      ← Dependencies & scripts
-├── .gitignore                        ← Git ignore rules
-├── README.md                         ← This file
-│
+├── .gitignore
+├── README.md
+├── index.html
+├── package.json
+├── vite.config.js
 └── src/
-    ├── main.jsx                      ← React root mount
+    ├── main.jsx                      ← React root
     ├── App.jsx                       ← Root component
     │
     ├── styles/
-    │   └── global.css                ← Design system (tokens, keyframes, base)
+    │   └── global.css                ← Design system, tokens, keyframes
     │
     ├── hooks/
     │   ├── useScrollReveal.js        ← IntersectionObserver scroll animations
-    │   └── useTypewriter.js          ← Typewriter effect hook
+    │   └── useTypewriter.js          ← Animated typewriter effect
     │
     ├── assets/
     │   ├── profile.jpeg              ← Profile photo
-    │   └── svg/                      ← Tech stack SVG icons
-    │       ├── html-5-svgrepo-com.svg
-    │       ├── css3-02-svgrepo-com.svg
-    │       ├── js-official-svgrepo-com.svg
-    │       ├── react-javascript-js-framework-facebook-svgrepo-com.svg
-    │       ├── tailwind-svgrepo-com.svg
-    │       ├── node-js-svgrepo-com.svg
-    │       ├── mongodb-svgrepo-com.svg
-    │       ├── mysql-svgrepo-com.svg
-    │       ├── git-svgrepo-com.svg
-    │       ├── github-svgrepo-com.svg
-    │       ├── figma-svgrepo-com.svg
-    │       └── adobe-illustrator-svgrepo-com.svg
+    │   └── svg/                      ← 12 original tech SVG icons
     │
     └── components/
         ├── UI/
-        │   └── CursorGlow.jsx        ← Animated cursor glow effect
+        │   └── CursorGlow.jsx        ← Smooth cursor light trail
         │
-        ├── Navbar/
-        │   ├── Navbar.jsx            ← Sticky navbar + mobile menu
-        │   └── Navbar.css
-        │
-        ├── Hero/
-        │   ├── Hero.jsx              ← Hero section + typewriter + stats
-        │   └── Hero.css
-        │
-        ├── About/
-        │   ├── About.jsx             ← About section + profile image
-        │   └── About.css
-        │
-        ├── Experience/
-        │   ├── Experience.jsx        ← Timeline career section
-        │   └── Experience.css
-        │
-        ├── Skills/
-        │   ├── Skills.jsx            ← Tech stack cards with icons
-        │   └── Skills.css
-        │
-        ├── Projects/
-        │   ├── Projects.jsx          ← Project cards with hover actions
-        │   └── Projects.css
-        │
-        ├── Contact/
-        │   ├── Contact.jsx           ← Contact form + social links
-        │   └── Contact.css
-        │
-        └── Footer/
-            ├── Footer.jsx            ← Footer with nav + socials
-            └── Footer.css
+        ├── Navbar/                   ← Sticky nav + mobile hamburger
+        ├── Hero/                     ← Typewriter + tech ticker + floating cards
+        ├── About/                    ← Profile + chips + SVG tech pills
+        ├── Experience/               ← Accordion timeline (click to expand)
+        ├── Skills/                   ← Tab switcher + animated progress bars
+        ├── Projects/                 ← Filter tabs + hover overlays + SVG tags
+        ├── Contact/                  ← Validated form + social links
+        └── Footer/                   ← Multi-column footer with SVG built-with
 ```
 
 ---
 
-## 🛠️ Tech Stack
+## ✨ Features
 
-| Technology        | Usage                                      |
-|-------------------|--------------------------------------------|
-| **React 18**      | UI components, hooks, state management     |
-| **Vite 5**        | Dev server, HMR, production build          |
-| **CSS Modules**   | Scoped per-component styles                |
-| **Google Fonts**  | Syne (display) · Space Mono (code) · Inter |
-| **IntersectionObserver** | Scroll reveal animations            |
-
----
-
-## 🎨 Design System
-
-| Token        | Value                   | Usage                  |
-|--------------|-------------------------|------------------------|
-| `--bg`       | `#04070f`               | Page background        |
-| `--accent`   | `#1563ff`               | Primary blue           |
-| `--acc`      | `#00d4ff`               | Cyan accent            |
-| `--acm`      | `#6c3aed`               | Purple accent          |
-| `--t1`       | `#eef2ff`               | Primary text           |
-| `--t2`       | `#6b8299`               | Secondary text         |
-| `--ff-display` | `'Syne'`              | Headings font          |
-| `--ff-mono`  | `'Space Mono'`          | Code / labels font     |
-| `--ff-body`  | `'Inter'`               | Body text font         |
+| Feature | Details |
+|---|---|
+| **Typewriter** | Animated role cycling in hero |
+| **Tech Ticker** | Auto-scrolling SVG icon strip |
+| **Floating Cards** | Animated stats, React badge on hero photo |
+| **Scroll Reveal** | Staggered entrance for every section |
+| **Cursor Glow** | Smooth radial light following the mouse |
+| **Experience Accordion** | Click to expand/collapse timeline items |
+| **Skills Tabs** | Category switcher with animated progress bars |
+| **Project Filter** | Filter projects by category (All / Full Stack / Frontend / Backend) |
+| **Form Validation** | Real-time error messages on contact form |
+| **Availability Badge** | Live green dot in contact section |
+| **Responsive** | Mobile-first, works on all screen sizes |
 
 ---
 
+## 🎨 Design Tokens
 
-
-## ✏️ Customisation
-
-| What to change         | Where                                         |
-|------------------------|-----------------------------------------------|
-| Name / bio text        | `src/components/About/About.jsx`              |
-| Hero typewriter words  | `src/components/Hero/Hero.jsx` → `useTypewriter([...])` |
-| Projects list          | `src/components/Projects/Projects.jsx` → `PROJECTS` array |
-| Experience / timeline  | `src/components/Experience/Experience.jsx` → `TIMELINE` array |
-| Contact links          | `src/components/Contact/Contact.jsx` → `LINKS` array |
-| Profile photo          | Replace `src/assets/profile.jpeg`             |
-| Color palette          | `src/styles/global.css` → `:root` variables  |
-| Fonts                  | `index.html` Google Fonts link + `global.css` `--ff-*` |
+```css
+--blue:   #1560f0   /* Primary accent  */
+--cyan:   #00d4ff   /* Secondary glow  */
+--purple: #7c3aed   /* Tertiary accent */
+--gold:   #f0b429   /* Code highlights */
+--bg:     #03060e   /* Page background */
+--t1:     #eef3ff   /* Primary text    */
+--ff-d:   'Syne'    /* Display font    */
+--ff-m:   'Space Mono' /* Code font   */
+--ff-b:   'Inter'   /* Body font       */
+```
 
 ---
 
-## 📝 License
+## 🚀 Getting Started
 
-MIT — feel free to fork, adapt, and make it yours.
+```bash
+# 1. Install dependencies
+npm install
+
+# 2. Start dev server
+npm run dev
+# → Opens at http://localhost:5173
+
+# 3. Build for production
+npm run build
+
+# 4. Preview production build
+npm run preview
+```
+
+---
+
+## 🌐 Deploy on Vercel
+
+```bash
+# Option A — CLI
+npm i -g vercel
+vercel
+
+# Option B — GUI
+# Push to GitHub → Import on vercel.com → Deploy ✅
+```
+
+---
+
+## ✏️ Customise
+
+| What | Where |
+|---|---|
+| Your name / bio | `src/components/About/About.jsx` |
+| Typewriter words | `src/components/Hero/Hero.jsx` → `useTypewriter([...])` |
+| Projects list | `src/components/Projects/Projects.jsx` → `PROJECTS` array |
+| Timeline items | `src/components/Experience/Experience.jsx` → `TIMELINE` array |
+| Contact links | `src/components/Contact/Contact.jsx` → `SOCIALS` array |
+| Profile photo | Replace `src/assets/profile.jpeg` |
+| Colors | `src/styles/global.css` → `:root` variables |
 
 ---
 

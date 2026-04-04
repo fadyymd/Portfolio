@@ -1,12 +1,12 @@
 import { useState, useEffect } from 'react'
 import './Navbar.css'
 
-const NAV_LINKS = [
-  { href: '#about',      label: 'About'      },
-  { href: '#experience', label: 'Experience' },
-  { href: '#skills',     label: 'Skills'     },
-  { href: '#projects',   label: 'Projects'   },
-  { href: '#contact',    label: 'Contact'    },
+const LINKS = [
+  { href:'#about',      label:'About'      },
+  { href:'#experience', label:'Experience' },
+  { href:'#skills',     label:'Skills'     },
+  { href:'#projects',   label:'Projects'   },
+  { href:'#contact',    label:'Contact'    },
 ]
 
 export default function Navbar() {
@@ -15,34 +15,28 @@ export default function Navbar() {
   const [open,     setOpen]     = useState(false)
 
   useEffect(() => {
-    const onScroll = () => {
+    const fn = () => {
       setScrolled(window.scrollY > 50)
       let cur = 'hero'
-      document.querySelectorAll('section[id]').forEach((s) => {
-        if (window.scrollY >= s.offsetTop - 110) cur = s.id
-      })
+      document.querySelectorAll('section[id]').forEach(s => { if(window.scrollY >= s.offsetTop-120) cur=s.id })
       setActive(cur)
     }
-    window.addEventListener('scroll', onScroll, { passive: true })
-    return () => window.removeEventListener('scroll', onScroll)
+    window.addEventListener('scroll', fn, { passive:true })
+    return () => window.removeEventListener('scroll', fn)
   }, [])
 
   const close = () => setOpen(false)
 
   return (
     <>
-      <nav className={`navbar${scrolled ? ' scrolled' : ''}`}>
+      <nav className={`navbar${scrolled?' scrolled':''}`}>
         <a href="#hero" className="nav-logo">
-          fadi<span className="logo-dot">.</span>dev
+          <span className="logo-f">F</span>adi<span className="logo-dot">.</span>dev
         </a>
 
         <div className="nav-links">
-          {NAV_LINKS.map(({ href, label }) => (
-            <a
-              key={href}
-              href={href}
-              className={active === href.slice(1) ? 'active' : ''}
-            >
+          {LINKS.map(({href,label}) => (
+            <a key={href} href={href} className={active===href.slice(1)?'active':''}>
               {label}
             </a>
           ))}
@@ -51,17 +45,16 @@ export default function Navbar() {
         <a href="#contact" className="nav-cta">Let's Talk</a>
 
         <button
-          className={`hamburger${open ? ' open' : ''}`}
-          onClick={() => setOpen((o) => !o)}
-          aria-label="Toggle menu"
+          className={`hamburger${open?' open':''}`}
+          onClick={() => setOpen(o=>!o)}
+          aria-label="Menu"
         >
-          <span /><span /><span />
+          <span/><span/><span/>
         </button>
       </nav>
 
-      {/* Mobile menu */}
-      <div className={`mob-menu${open ? ' open' : ''}`}>
-        {NAV_LINKS.map(({ href, label }) => (
+      <div className={`mob-menu${open?' open':''}`}>
+        {LINKS.map(({href,label}) => (
           <a key={href} href={href} onClick={close}>{label}</a>
         ))}
         <a href="#contact" onClick={close} className="mob-cta">Let's Talk →</a>
