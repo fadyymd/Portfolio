@@ -1,112 +1,38 @@
-.experience { background: var(--bg) }
-.exp-wrap { max-width: 860px; margin: 0 auto }
+.experience{background:var(--bg)}
+.exp-wrap{max-width:1100px;margin:0 auto}
+.exp-layout{display:grid;grid-template-columns:.85fr 1.15fr;gap:2rem;align-items:start}
 
-.timeline { display: flex; flex-direction: column }
+.exp-list{display:flex;flex-direction:column;gap:.6rem;position:sticky;top:90px}
+.exp-item{display:flex;align-items:center;gap:.9rem;padding:1rem 1.2rem;background:var(--bg2);border:1px solid var(--bdr);border-radius:14px;cursor:pointer;transition:all .28s var(--ease);position:relative;overflow:hidden}
+.exp-item::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--c,var(--blue));opacity:0;transition:opacity .28s}
+.exp-item:hover{border-color:var(--bdr2);transform:translateX(4px)}
+.exp-item.active{border-color:var(--bdr2);background:var(--bg3);box-shadow:0 6px 30px rgba(0,0,0,.4)}
+.exp-item.active::before{opacity:1}
+.exp-icon{font-size:1.3rem;width:40px;height:40px;background:var(--bg3);border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:transform .25s var(--bounce)}
+.exp-item:hover .exp-icon,.exp-item.active .exp-icon{transform:scale(1.15)}
+.exp-meta{flex:1}
+.exp-title{display:block;font-family:var(--ff-d);font-size:.9rem;font-weight:700;color:var(--t1);margin-bottom:2px}
+.exp-period{font-family:var(--ff-m);font-size:.62rem;color:var(--t3)}
+.exp-arrow{color:var(--t3);transition:all .25s;flex-shrink:0}
+.exp-item.active .exp-arrow{color:var(--c,var(--blue));transform:translateX(3px)}
 
-.tl-item {
-  display: grid;
-  grid-template-columns: 48px 1fr;
-  gap: 0 1.4rem;
-  position: relative;
-}
+/* Detail panel */
+.exp-detail{position:relative;min-height:360px}
+.exp-panel{position:absolute;inset:0;background:var(--bg2);border:1px solid var(--bdr);border-radius:20px;padding:2rem;opacity:0;pointer-events:none;transform:translateX(20px);transition:opacity .35s var(--ease),transform .35s var(--ease)}
+.exp-panel.visible{position:relative;opacity:1;pointer-events:auto;transform:none}
 
-/* Connector */
-.tl-connector {
-  display: flex; flex-direction: column; align-items: center;
-  padding-top: .35rem;
-}
-.tl-dot {
-  width: 20px; height: 20px; border-radius: 50%;
-  border: 2px solid var(--c, var(--blue));
-  background: var(--bg);
-  display: flex; align-items: center; justify-content: center;
-  flex-shrink: 0;
-  box-shadow: 0 0 14px color-mix(in srgb, var(--c, var(--blue)) 40%, transparent);
-  transition: box-shadow .3s;
-}
-.tl-item:hover .tl-dot,
-.tl-item.expanded .tl-dot {
-  box-shadow: 0 0 22px color-mix(in srgb, var(--c, var(--blue)) 70%, transparent);
-}
-.tl-dot-core {
-  width: 8px; height: 8px; border-radius: 50%;
-  background: var(--c, var(--blue));
-  box-shadow: 0 0 8px color-mix(in srgb, var(--c, var(--blue)) 80%, transparent);
-}
-.tl-line {
-  flex: 1; width: 1.5px; margin: 6px 0 0;
-  background: linear-gradient(to bottom, var(--c, var(--blue)), transparent);
-  min-height: 40px; opacity: .4;
-}
+.ep-header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:1.5rem;padding-bottom:1.2rem;border-bottom:1px solid var(--bdr)}
+.ep-tag{font-family:var(--ff-m);font-size:.6rem;padding:.22rem .65rem;border-radius:100px;border:1px solid;font-weight:700;letter-spacing:.08em;margin-bottom:.6rem;display:inline-block}
+.ep-header h3{font-family:var(--ff-d);font-size:1.2rem;font-weight:800;color:var(--t1);margin-bottom:.35rem}
+.ep-company{display:flex;align-items:center;gap:5px;font-size:.83rem;color:var(--bluel);margin-bottom:.3rem}
+.ep-period{font-family:var(--ff-m);font-size:.65rem;color:var(--t3)}
+.ep-num{font-family:var(--ff-d);font-size:3.5rem;font-weight:800;color:var(--c,var(--blue));opacity:.12;line-height:1}
 
-/* Card */
-.tl-card {
-  background: var(--bg2);
-  border: 1px solid var(--bdr);
-  border-radius: 18px; padding: 1.4rem 1.6rem;
-  margin-bottom: 1.6rem; cursor: pointer;
-  transition: border-color .28s, box-shadow .28s, transform .28s;
-  position: relative; overflow: hidden;
-}
-.tl-card::before {
-  content: ''; position: absolute;
-  inset-inline-start: 0; top: 0; bottom: 0; width: 3px;
-  background: var(--c, var(--blue)); border-radius: 3px 0 0 3px;
-}
-.tl-item:hover .tl-card,
-.tl-item.expanded .tl-card {
-  border-color: var(--bdr2);
-  box-shadow: 0 8px 44px rgba(0,0,0,.45);
-  transform: translateX(4px);
-}
+.ep-bullets{list-style:none;display:flex;flex-direction:column;gap:.65rem;margin-bottom:1.5rem}
+.ep-bullets li{display:flex;align-items:flex-start;gap:9px;font-size:.87rem;color:var(--t2);line-height:1.72;animation:slideIn .4s calc(var(--j)*80ms) var(--ease) both}
+.ep-dot{width:6px;height:6px;border-radius:50%;flex-shrink:0;margin-top:8px}
 
-/* Card header */
-.tl-card-top {
-  display: flex; align-items: center; justify-content: space-between;
-  margin-bottom: .75rem;
-}
-.tl-left-meta { display: flex; align-items: center; gap: .7rem }
+.ep-tech{display:flex;flex-wrap:wrap;gap:.5rem}
+.ep-chip{font-family:var(--ff-m);font-size:.68rem;padding:.24rem .7rem;border-radius:100px;border:1px solid;background:transparent;font-weight:600}
 
-.tl-tag {
-  font-family: var(--ff-m); font-size: .6rem;
-  padding: .22rem .65rem; border-radius: 100px;
-  border: 1px solid; font-weight: 700; letter-spacing: .08em;
-}
-.tl-period {
-  font-family: var(--ff-m); font-size: .65rem;
-  color: var(--t3); letter-spacing: .1em;
-}
-.tl-toggle { color: var(--t3); transition: color .2s }
-.tl-item:hover .tl-toggle { color: var(--t2) }
-
-.tl-title {
-  font-family: var(--ff-d); font-size: 1.1rem; font-weight: 700;
-  color: var(--t1); margin-bottom: .35rem;
-}
-.tl-company {
-  display: flex; align-items: center; gap: 5px;
-  font-size: .83rem; color: var(--bluel); margin-bottom: 1rem;
-}
-
-/* Animated bullets */
-.tl-bullets-wrap {
-  overflow: hidden;
-  max-height: 0;
-  transition: max-height .4s var(--ease);
-}
-.tl-item.expanded .tl-bullets-wrap { max-height: 280px }
-
-.tl-bullets { list-style: none; display: flex; flex-direction: column; gap: .55rem }
-.tl-bullets li {
-  font-size: .87rem; color: var(--t2); line-height: 1.7;
-  display: flex; align-items: flex-start; gap: 8px;
-}
-.tl-bullet-dot {
-  width: 6px; height: 6px; border-radius: 50%;
-  flex-shrink: 0; margin-top: 7px;
-}
-
-@media (max-width: 640px) {
-  .tl-item { grid-template-columns: 34px 1fr; gap: 0 .8rem }
-  .tl-card { padding: 1.1rem 1.2rem }
-}
+@media(max-width:900px){.exp-layout{grid-template-columns:1fr}.exp-list{position:static}.exp-panel{position:static;opacity:1;transform:none;pointer-events:auto;display:none}.exp-panel.visible{display:block}}

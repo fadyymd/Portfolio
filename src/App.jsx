@@ -1,4 +1,3 @@
-import { useEffect } from 'react'
 import { useScrollReveal } from './hooks/useScrollReveal.js'
 import CursorGlow   from './components/UI/CursorGlow.jsx'
 import Navbar       from './components/Navbar/Navbar.jsx'

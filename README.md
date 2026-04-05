@@ -1,6 +1,6 @@
-# 🚀 Fadi Medkour — Portfolio v2
+# 🚀 Fadi Medkour — Portfolio v3
 
-> Personal portfolio built with **React 18 + Vite** — dark cinematic design, rich animations, interactive components, fully responsive.
+> Professional portfolio built with **React 18 + Vite** — dark cinematic design, rich interactivity, fully responsive.
 
 ---
 
@@ -14,110 +14,95 @@ portfolio/
 ├── package.json
 ├── vite.config.js
 └── src/
-    ├── main.jsx                      ← React root
-    ├── App.jsx                       ← Root component
-    │
+    ├── main.jsx
+    ├── App.jsx
     ├── styles/
-    │   └── global.css                ← Design system, tokens, keyframes
-    │
+    │   └── global.css          ← Design tokens, keyframes, utilities
     ├── hooks/
-    │   ├── useScrollReveal.js        ← IntersectionObserver scroll animations
-    │   └── useTypewriter.js          ← Animated typewriter effect
-    │
+    │   ├── useScrollReveal.js  ← Staggered scroll animations
+    │   └── useTypewriter.js    ← Animated role cycling
     ├── assets/
-    │   ├── profile.jpeg              ← Profile photo
-    │   └── svg/                      ← 12 original tech SVG icons
-    │
+    │   ├── profile.jpeg
+    │   └── svg/                ← 12 short-named tech icons
+    │       html.svg · css.svg · js.svg · react.svg · tailwind.svg
+    │       nodejs.svg · mongodb.svg · mysql.svg
+    │       git.svg · github.svg · figma.svg · illustrator.svg
     └── components/
-        ├── UI/
-        │   └── CursorGlow.jsx        ← Smooth cursor light trail
-        │
-        ├── Navbar/                   ← Sticky nav + mobile hamburger
-        ├── Hero/                     ← Typewriter + tech ticker + floating cards
-        ├── About/                    ← Profile + chips + SVG tech pills
-        ├── Experience/               ← Accordion timeline (click to expand)
-        ├── Skills/                   ← Tab switcher + animated progress bars
-        ├── Projects/                 ← Filter tabs + hover overlays + SVG tags
-        ├── Contact/                  ← Validated form + social links
-        └── Footer/                   ← Multi-column footer with SVG built-with
+        ├── UI/CursorGlow.jsx           ← Mouse-following glow
+        ├── Navbar/ (jsx + css)         ← Scroll progress bar, numbered mobile menu
+        ├── Hero/   (jsx + css)         ← Mouse parallax, tech ticker, 4 floating cards
+        ├── About/  (jsx + css)         ← Hover-reveal tech pills, facts grid
+        ├── Experience/ (jsx + css)     ← List+panel split layout, animated
+        ├── Skills/     (jsx + css)     ← Tab switcher, glow progress bars, icon grid
+        ├── Projects/   (jsx + css)     ← Filter tabs, ripple click, hover overlay
+        ├── Contact/    (jsx + css)     ← Live validation, animated input borders
+        └── Footer/     (jsx + css)     ← Wave divider, SVG built-with
 ```
 
 ---
 
-## ✨ Features
+## ✨ Interactive Features
 
-| Feature | Details |
+| Feature | Component |
 |---|---|
-| **Typewriter** | Animated role cycling in hero |
-| **Tech Ticker** | Auto-scrolling SVG icon strip |
-| **Floating Cards** | Animated stats, React badge on hero photo |
-| **Scroll Reveal** | Staggered entrance for every section |
-| **Cursor Glow** | Smooth radial light following the mouse |
-| **Experience Accordion** | Click to expand/collapse timeline items |
-| **Skills Tabs** | Category switcher with animated progress bars |
-| **Project Filter** | Filter projects by category (All / Full Stack / Frontend / Backend) |
-| **Form Validation** | Real-time error messages on contact form |
-| **Availability Badge** | Live green dot in contact section |
-| **Responsive** | Mobile-first, works on all screen sizes |
+| Scroll progress bar (top) | Navbar |
+| Numbered mobile menu | Navbar |
+| Mouse parallax on hero photo | Hero |
+| Animated tech ticker strip | Hero |
+| 4 floating cards (stats, React, Node, passion) | Hero |
+| Hover-reveal tech pills on photo | About |
+| Stats & facts floating card | About |
+| List + animated detail panel | Experience |
+| Category tab switcher | Skills |
+| Glow progress bars (re-animate on tab switch) | Skills |
+| Project filter with count badges | Projects |
+| Ripple click effect on project cards | Projects |
+| Form with real-time validation | Contact |
+| Animated input underline on focus | Contact |
+| Availability + response stats | Contact |
+| Wave SVG footer divider | Footer |
+| Scroll-staggered reveals everywhere | Global |
+| Cursor glow (scales on hover) | Global |
 
 ---
 
 ## 🎨 Design Tokens
 
 ```css
---blue:   #1560f0   /* Primary accent  */
---cyan:   #00d4ff   /* Secondary glow  */
---purple: #7c3aed   /* Tertiary accent */
---gold:   #f0b429   /* Code highlights */
---bg:     #03060e   /* Page background */
---t1:     #eef3ff   /* Primary text    */
---ff-d:   'Syne'    /* Display font    */
---ff-m:   'Space Mono' /* Code font   */
---ff-b:   'Inter'   /* Body font       */
+--blue:   #1560f0   --cyan:  #00d4ff   --purple: #7c3aed
+--gold:   #f0b429   --green: #10b981   --bg:     #02050d
+--t1:     #eef3ff   --t2:    #6b82a0   --t3:     #253650
+--ff-d: 'Syne'   --ff-m: 'Space Mono'   --ff-b: 'Inter'
 ```
 
 ---
 
-## 🚀 Getting Started
+## 🚀 Run Locally
 
 ```bash
-# 1. Install dependencies
 npm install
-
-# 2. Start dev server
-npm run dev
-# → Opens at http://localhost:5173
-
-# 3. Build for production
-npm run build
-
-# 4. Preview production build
-npm run preview
+npm run dev       # → http://localhost:5173
+npm run build     # production build → dist/
+npm run preview   # preview build locally
 ```
-
----
 
 ## 🌐 Deploy on Vercel
 
 ```bash
-# Option A — CLI
-npm i -g vercel
-vercel
-
-# Option B — GUI
-# Push to GitHub → Import on vercel.com → Deploy ✅
+npm i -g vercel && vercel
+# Or: push to GitHub → import on vercel.com
 ```
 
 ---
 
-## ✏️ Customise
+## ✏️ Quick Customisation
 
-| What | Where |
+| What | File |
 |---|---|
-| Your name / bio | `src/components/About/About.jsx` |
-| Typewriter words | `src/components/Hero/Hero.jsx` → `useTypewriter([...])` |
-| Projects list | `src/components/Projects/Projects.jsx` → `PROJECTS` array |
-| Timeline items | `src/components/Experience/Experience.jsx` → `TIMELINE` array |
+| Name, bio, chips | `src/components/About/About.jsx` |
+| Typewriter roles | `src/components/Hero/Hero.jsx` → `useTypewriter([...])` |
+| Projects | `src/components/Projects/Projects.jsx` → `PROJECTS` array |
+| Timeline | `src/components/Experience/Experience.jsx` → `TIMELINE` array |
 | Contact links | `src/components/Contact/Contact.jsx` → `SOCIALS` array |
 | Profile photo | Replace `src/assets/profile.jpeg` |
 | Colors | `src/styles/global.css` → `:root` variables |
