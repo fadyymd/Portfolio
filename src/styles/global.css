@@ -63,3 +63,20 @@ section{padding:120px 6%;position:relative;z-index:1}
 
 @media(max-width:900px){section{padding:90px 5%}}
 @media(max-width:600px){section{padding:75px 4%}}
+
+/* ─── RTL SUPPORT ─── */
+[dir="rtl"] { direction: rtl }
+[dir="rtl"] .section-badge::before { order: 1 }
+[dir="rtl"] .ab-pills { right: auto; left: -20px }
+[dir="rtl"] .ab-facts { left: auto; right: -20px }
+[dir="rtl"] .float-react { right: auto; left: -20px }
+[dir="rtl"] .float-passion { right: auto; left: -20px }
+[dir="rtl"] .float-node { left: auto; right: -22px }
+[dir="rtl"] .ab-corner.tl { left: auto; right: -14px; border-left: none; border-right: 2px solid var(--bdr2); border-radius: 0 4px 0 0 }
+[dir="rtl"] .ab-corner.br { right: auto; left: -14px; border-right: none; border-left: 2px solid rgba(0,212,255,.28); border-radius: 0 0 0 4px }
+[dir="rtl"] .tl-card::before { inset-inline-start: 0 }
+[dir="rtl"] .exp-item { flex-direction: row-reverse }
+[dir="rtl"] .fc a,.fc ul a { padding-left: 0; padding-right: 0 }
+[dir="rtl"] .fc a:hover { padding-left: 0; padding-right: 6px }
+[dir="rtl"] .footer-top { direction: rtl }
+[dir="rtl"] .nav-logo { flex-direction: row-reverse }

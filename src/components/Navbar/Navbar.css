@@ -29,3 +29,11 @@
 .mob-num{font-family:var(--ff-m);font-size:.65rem;color:var(--t3)}
 .mob-cta-link{color:var(--bluel)!important;font-weight:700;border-bottom:none!important;margin-top:.6rem}
 @media(max-width:860px){.nav-links,.nav-cta{display:none}.hamburger{display:flex}}
+
+/* Language toggle */
+.lang-btn{display:flex;align-items:center;gap:4px;background:var(--bg3);border:1px solid var(--bdr);border-radius:8px;padding:.35rem .65rem;font-family:var(--ff-m);font-size:.68rem;font-weight:700;color:var(--t3);transition:all .25s;cursor:pointer}
+.lang-btn:hover{border-color:var(--bdr2);color:var(--t2)}
+.lang-active{color:var(--blue)}
+.lang-sep{color:var(--t3);opacity:.4}
+.lang-btn-mob{font-size:.82rem;padding:.5rem .9rem}
+.mob-bottom{display:flex;align-items:center;justify-content:space-between;padding-top:.8rem;margin-top:.4rem;border-top:1px solid var(--bdr)}

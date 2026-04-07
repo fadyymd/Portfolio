@@ -1,112 +1,100 @@
-# 🚀 Fadi Medkour — Portfolio v3
+# 🚀 Fadi Medkour — Portfolio v4
 
-> Professional portfolio built with **React 18 + Vite** — dark cinematic design, rich interactivity, fully responsive.
+> React 18 + Vite · Bilingual EN/AR · EmailJS · Dark cinematic · Fully interactive
+
+📧 **Email:** twwityh@gmail.com
 
 ---
 
-## 📁 Project Structure
+## 📁 Structure
 
 ```
 portfolio/
-├── .gitignore
-├── README.md
-├── index.html
-├── package.json
-├── vite.config.js
+├── index.html             ← Meta tags + Cairo font (Arabic)
+├── package.json · vite.config.js · .gitignore
 └── src/
-    ├── main.jsx
-    ├── App.jsx
-    ├── styles/
-    │   └── global.css          ← Design tokens, keyframes, utilities
+    ├── App.jsx            ← LangContext provider
+    ├── i18n.js            ← All EN + AR translations
+    ├── styles/global.css  ← Tokens · keyframes · RTL rules
     ├── hooks/
-    │   ├── useScrollReveal.js  ← Staggered scroll animations
-    │   └── useTypewriter.js    ← Animated role cycling
+    │   ├── useLang.js         ← Language + RTL switcher
+    │   ├── useScrollReveal.js
+    │   └── useTypewriter.js
     ├── assets/
     │   ├── profile.jpeg
-    │   └── svg/                ← 12 short-named tech icons
-    │       html.svg · css.svg · js.svg · react.svg · tailwind.svg
-    │       nodejs.svg · mongodb.svg · mysql.svg
-    │       git.svg · github.svg · figma.svg · illustrator.svg
+    │   └── svg/ (12 clean names)
     └── components/
-        ├── UI/CursorGlow.jsx           ← Mouse-following glow
-        ├── Navbar/ (jsx + css)         ← Scroll progress bar, numbered mobile menu
-        ├── Hero/   (jsx + css)         ← Mouse parallax, tech ticker, 4 floating cards
-        ├── About/  (jsx + css)         ← Hover-reveal tech pills, facts grid
-        ├── Experience/ (jsx + css)     ← List+panel split layout, animated
-        ├── Skills/     (jsx + css)     ← Tab switcher, glow progress bars, icon grid
-        ├── Projects/   (jsx + css)     ← Filter tabs, ripple click, hover overlay
-        ├── Contact/    (jsx + css)     ← Live validation, animated input borders
-        └── Footer/     (jsx + css)     ← Wave divider, SVG built-with
+        ├── UI/CursorGlow.jsx
+        ├── Navbar/   ← Scroll progress + EN|AR toggle
+        ├── Hero/     ← Parallax · ticker · 4 float cards
+        ├── About/    ← Hover pills · facts grid
+        ├── Experience/ ← Split list+panel
+        ├── Skills/   ← Tabs + glow bars
+        ├── Projects/ ← Filter + ripple click
+        ├── Contact/  ← EmailJS + validation + char counter
+        └── Footer/   ← Wave SVG
 ```
 
 ---
 
-## ✨ Interactive Features
+## 🌍 Bilingual EN / AR
 
-| Feature | Component |
-|---|---|
-| Scroll progress bar (top) | Navbar |
-| Numbered mobile menu | Navbar |
-| Mouse parallax on hero photo | Hero |
-| Animated tech ticker strip | Hero |
-| 4 floating cards (stats, React, Node, passion) | Hero |
-| Hover-reveal tech pills on photo | About |
-| Stats & facts floating card | About |
-| List + animated detail panel | Experience |
-| Category tab switcher | Skills |
-| Glow progress bars (re-animate on tab switch) | Skills |
-| Project filter with count badges | Projects |
-| Ripple click effect on project cards | Projects |
-| Form with real-time validation | Contact |
-| Animated input underline on focus | Contact |
-| Availability + response stats | Contact |
-| Wave SVG footer divider | Footer |
-| Scroll-staggered reveals everywhere | Global |
-| Cursor glow (scales on hover) | Global |
+Click **EN | AR** in the navbar to switch languages. The entire site switches including:
+- All UI text (nav, sections, buttons, forms)
+- Arabic typewriter roles in Hero
+- RTL layout (direction flips, corners mirror, animations adapt)
+- Arabic font (Cairo) auto-loaded
 
 ---
 
-## 🎨 Design Tokens
+## 📧 Setup EmailJS (real email delivery)
 
-```css
---blue:   #1560f0   --cyan:  #00d4ff   --purple: #7c3aed
---gold:   #f0b429   --green: #10b981   --bg:     #02050d
---t1:     #eef3ff   --t2:    #6b82a0   --t3:     #253650
---ff-d: 'Syne'   --ff-m: 'Space Mono'   --ff-b: 'Inter'
-```
+1. Go to **https://www.emailjs.com** → create free account
+2. Add an **Email Service** (Gmail recommended) → copy `SERVICE_ID`
+3. Create an **Email Template** with these variables:
+   ```
+   From: {{from_name}} <{{from_email}}>
+   Subject: {{subject}}
+   Body: {{message}}
+   To: twwityh@gmail.com
+   ```
+4. Go to **Account → API Keys** → copy `PUBLIC_KEY`
+5. Open `src/components/Contact/Contact.jsx` and replace:
+   ```js
+   const EMAILJS_SERVICE  = 'YOUR_SERVICE_ID'
+   const EMAILJS_TEMPLATE = 'YOUR_TEMPLATE_ID'
+   const EMAILJS_KEY      = 'YOUR_PUBLIC_KEY'
+   ```
 
 ---
 
-## 🚀 Run Locally
+## 🚀 Run
 
 ```bash
 npm install
-npm run dev       # → http://localhost:5173
-npm run build     # production build → dist/
-npm run preview   # preview build locally
+npm run dev      # → http://localhost:5173
+npm run build    # → dist/
 ```
 
-## 🌐 Deploy on Vercel
+## 🌐 Deploy (Vercel)
 
 ```bash
 npm i -g vercel && vercel
-# Or: push to GitHub → import on vercel.com
 ```
 
 ---
 
-## ✏️ Quick Customisation
+## ✏️ Customise
 
 | What | File |
 |---|---|
-| Name, bio, chips | `src/components/About/About.jsx` |
-| Typewriter roles | `src/components/Hero/Hero.jsx` → `useTypewriter([...])` |
-| Projects | `src/components/Projects/Projects.jsx` → `PROJECTS` array |
-| Timeline | `src/components/Experience/Experience.jsx` → `TIMELINE` array |
-| Contact links | `src/components/Contact/Contact.jsx` → `SOCIALS` array |
-| Profile photo | Replace `src/assets/profile.jpeg` |
-| Colors | `src/styles/global.css` → `:root` variables |
+| Translations | `src/i18n.js` |
+| EmailJS keys | `src/components/Contact/Contact.jsx` |
+| Projects | `src/components/Projects/Projects.jsx` → `PROJECTS` |
+| Timeline | `src/components/Experience/Experience.jsx` → `TL_EN` / `TL_AR` |
+| Colors | `src/styles/global.css` → `:root` |
+| Photo | Replace `src/assets/profile.jpeg` |
 
 ---
 
-صُنع بـ ❤️ في الجزائر · © 2026 Fadi Medkour
+صُنع بـ ❤️ في الجزائر · © 2026 Fadi Medkour | twwityh@gmail.com

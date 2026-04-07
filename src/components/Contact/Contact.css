@@ -44,3 +44,20 @@
 .sp{width:17px;height:17px;border:2px solid rgba(255,255,255,.3);border-top-color:#fff;border-radius:50%;animation:spin .75s linear infinite}
 @media(max-width:860px){.contact-grid{grid-template-columns:1fr;gap:3rem}}
 @media(max-width:500px){.form-row{grid-template-columns:1fr}.ci-stats{grid-template-columns:1fr 1fr}}
+
+/* New additions */
+.form-banner{display:flex;align-items:center;gap:.9rem;padding:1rem 1.2rem;border-radius:12px;background:rgba(16,185,129,.1);border:1px solid rgba(16,185,129,.3);animation:slideIn .35s var(--ease)}
+.success-banner{color:var(--green)}
+.success-banner strong{display:block;font-size:.9rem;font-weight:700}
+.success-banner span{font-size:.8rem;opacity:.8}
+.msg-label-row{display:flex;align-items:center;justify-content:space-between}
+.char-count{font-family:var(--ff-m);font-size:.65rem;color:var(--t3)}
+.char-count.warn{color:var(--gold)}
+.err-wrap input,.err-wrap textarea{border-color:rgba(239,68,68,.5)!important}
+.form-note{font-size:.75rem;color:var(--t3);text-align:center;font-family:var(--ff-m)}
+
+/* RTL support */
+[dir="rtl"] .ci-arr{transform:scaleX(-1)}
+[dir="rtl"] .ci-link:hover:not(.no-link){transform:translateX(-5px)}
+[dir="rtl"] .fi-border{left:auto;right:50%;transform:translateX(50%)}
+[dir="rtl"] .fi-wrap:focus-within .fi-border{right:0;transform:none}
