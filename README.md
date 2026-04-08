@@ -1,70 +1,91 @@
-# 🚀 Fadi Medkour — Portfolio v4
+# 🚀 Fadi Medkour — Portfolio v5
 
-> React 18 + Vite · Bilingual EN/AR · EmailJS · Dark cinematic · Fully interactive
+> React 18 + Vite · Bilingual EN/AR · EmailJS · Custom cursor · Loading screen · Particles · Toast
 
 📧 **Email:** twwityh@gmail.com
 
 ---
 
-## 📁 Structure
+## 📁 Full Structure
 
 ```
 portfolio/
-├── index.html             ← Meta tags + Cairo font (Arabic)
-├── package.json · vite.config.js · .gitignore
+├── .gitignore
+├── README.md
+├── index.html           ← Meta + Cairo font (Arabic)
+├── package.json
+├── vite.config.js
 └── src/
-    ├── App.jsx            ← LangContext provider
-    ├── i18n.js            ← All EN + AR translations
-    ├── styles/global.css  ← Tokens · keyframes · RTL rules
+    ├── App.jsx          ← LangContext + all providers
+    ├── i18n.js          ← EN + AR translations
+    ├── styles/
+    │   └── global.css   ← Design system + RTL + cursor:none
     ├── hooks/
-    │   ├── useLang.js         ← Language + RTL switcher
+    │   ├── useLang.js        ← Language + RTL dir switcher
+    │   ├── useMouseTilt.js   ← 3D card tilt effect
     │   ├── useScrollReveal.js
     │   └── useTypewriter.js
     ├── assets/
     │   ├── profile.jpeg
-    │   └── svg/ (12 clean names)
+    │   └── svg/         ← 12 clean-named tech icons
     └── components/
-        ├── UI/CursorGlow.jsx
-        ├── Navbar/   ← Scroll progress + EN|AR toggle
-        ├── Hero/     ← Parallax · ticker · 4 float cards
-        ├── About/    ← Hover pills · facts grid
-        ├── Experience/ ← Split list+panel
-        ├── Skills/   ← Tabs + glow bars
-        ├── Projects/ ← Filter + ripple click
-        ├── Contact/  ← EmailJS + validation + char counter
-        └── Footer/   ← Wave SVG
+        ├── UI/
+        │   ├── MouseFollower.jsx + .css   ← Custom dual cursor
+        │   ├── LoadingScreen.jsx + .css   ← Animated intro screen
+        │   ├── Particles.jsx              ← Canvas particle network
+        │   ├── Toast.jsx + .css           ← Notification system
+        │   └── BackToTop.jsx + .css       ← Circular progress button
+        ├── Navbar/   ← Progress bar + EN|AR toggle + smooth hover
+        ├── Hero/     ← Clean photo + parallax + skills row + ticker
+        ├── About/    ← Clean photo + 3D tilt + facts + skill bars
+        ├── Experience/ ← Split list+panel interaction
+        ├── Skills/   ← Tabs + glow animated bars
+        ├── Projects/ ← 3D tilt + ripple + filter tabs
+        ├── Contact/  ← EmailJS + validation + toast feedback
+        └── Footer/   ← Wave SVG + built-with SVGs
 ```
 
 ---
 
-## 🌍 Bilingual EN / AR
+## 🖱️ Interactive Features
 
-Click **EN | AR** in the navbar to switch languages. The entire site switches including:
-- All UI text (nav, sections, buttons, forms)
-- Arabic typewriter roles in Hero
-- RTL layout (direction flips, corners mirror, animations adapt)
-- Arabic font (Cairo) auto-loaded
+| Feature | Component |
+|---|---|
+| Custom dual cursor (dot + ring) | MouseFollower |
+| Loading screen with progress | LoadingScreen |
+| Particle network canvas | Particles |
+| Toast notifications (success/error) | Toast |
+| Scroll progress + back to top | Navbar / BackToTop |
+| EN ↔ AR language switch + RTL | Navbar / useLang |
+| Mouse parallax on Hero photo | Hero |
+| 3D tilt on project cards | useMouseTilt |
+| 3D tilt on About photo | useMouseTilt |
+| Tech ticker strip | Hero |
+| Animated typewriter role | useTypewriter |
+| Animated counters | Hero / About |
+| Animated skill bars | About / Skills |
+| Mini skill bars in About | About |
+| Tabs in Skills section | Skills |
+| Filter + count in Projects | Projects |
+| Ripple click on cards | Projects |
+| Form validation + live clear | Contact |
+| Char counter in message | Contact |
 
 ---
 
-## 📧 Setup EmailJS (real email delivery)
+## 📧 Setup EmailJS
 
-1. Go to **https://www.emailjs.com** → create free account
-2. Add an **Email Service** (Gmail recommended) → copy `SERVICE_ID`
-3. Create an **Email Template** with these variables:
-   ```
-   From: {{from_name}} <{{from_email}}>
-   Subject: {{subject}}
-   Body: {{message}}
-   To: twwityh@gmail.com
-   ```
-4. Go to **Account → API Keys** → copy `PUBLIC_KEY`
-5. Open `src/components/Contact/Contact.jsx` and replace:
-   ```js
-   const EMAILJS_SERVICE  = 'YOUR_SERVICE_ID'
-   const EMAILJS_TEMPLATE = 'YOUR_TEMPLATE_ID'
-   const EMAILJS_KEY      = 'YOUR_PUBLIC_KEY'
-   ```
+1. **https://emailjs.com** → free account
+2. Add Gmail service → copy `SERVICE_ID`
+3. Create template with `{{from_name}}`, `{{from_email}}`, `{{subject}}`, `{{message}}`
+4. Account → API Keys → copy `PUBLIC_KEY`
+5. Edit `src/components/Contact/Contact.jsx`:
+
+```js
+const EMAILJS_SERVICE  = 'YOUR_SERVICE_ID'
+const EMAILJS_TEMPLATE = 'YOUR_TEMPLATE_ID'
+const EMAILJS_KEY      = 'YOUR_PUBLIC_KEY'
+```
 
 ---
 
@@ -88,10 +109,10 @@ npm i -g vercel && vercel
 
 | What | File |
 |---|---|
-| Translations | `src/i18n.js` |
+| All text (EN+AR) | `src/i18n.js` |
 | EmailJS keys | `src/components/Contact/Contact.jsx` |
-| Projects | `src/components/Projects/Projects.jsx` → `PROJECTS` |
-| Timeline | `src/components/Experience/Experience.jsx` → `TL_EN` / `TL_AR` |
+| Projects list | `src/components/Projects/Projects.jsx` → `PROJECTS` |
+| Timeline | `src/components/Experience/Experience.jsx` → `TL_EN / TL_AR` |
 | Colors | `src/styles/global.css` → `:root` |
 | Photo | Replace `src/assets/profile.jpeg` |
 
