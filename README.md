@@ -118,4 +118,3 @@ npm i -g vercel && vercel
 
 ---
 
-صُنع بـ ❤️ في الجزائر · © 2026 Fadi Medkour | twwityh@gmail.com
