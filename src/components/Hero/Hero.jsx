@@ -19,6 +19,7 @@ const TICKER = [
 ]
 const ROLES_EN = ['Full Stack Dev','React Engineer','Backend Builder','UI Craftsman']
 const ROLES_AR = ['مطوّر Full Stack','مهندس React','مطوّر خلفي','مصمم واجهات']
+const STACK_ICONS = [svgReact,svgNode,svgJS,svgMongo,svgGit]
 
 function Counter({ target, label }) {
   const [n, setN] = useState(0)
@@ -27,9 +28,9 @@ function Counter({ target, label }) {
     const obs = new IntersectionObserver(([e]) => {
       if (e.isIntersecting && !done.current) {
         done.current = true; let v = 0; const step = target / 55
-        const iv = setInterval(() => { v = Math.min(v+step,target); setN(Math.floor(v)); if(v>=target) clearInterval(iv) }, 22)
+        const iv = setInterval(() => { v=Math.min(v+step,target); setN(Math.floor(v)); if(v>=target) clearInterval(iv) }, 22)
       }
-    }, { threshold:.5 })
+    }, { threshold: .5 })
     if (ref.current) obs.observe(ref.current)
     return () => obs.disconnect()
   }, [target])
@@ -59,9 +60,10 @@ export default function Hero() {
     if (el) { el.addEventListener('mousemove', fn); return () => el.removeEventListener('mousemove', fn) }
   }, [])
 
+  const greeting = lang === 'ar' ? 'مرحباً، أنا' : "Hi, I'm"
+
   return (
     <section id="hero" className="hero" ref={heroRef}>
-      {/* Animated mesh background */}
       <div className="hero-mesh" />
       <div className="orb orb-1" />
       <div className="orb orb-2" />
@@ -75,17 +77,16 @@ export default function Hero() {
           <div className="hero-avail rv" style={{'--i':0}}>
             <span className="avail-ring" />
             <span className="avail-dot" />
-            <span>{lang==='ar'?'متاح للعمل الحر':'Available for Freelance'}</span>
+            <span>{lang==='ar' ? 'متاح للعمل الحر' : 'Available for Freelance'}</span>
             <span className="avail-sep">·</span>
             <span className="avail-loc">🇩🇿 Algiers</span>
           </div>
 
-          {/* Main title */}
+          {/* Title */}
           <h1 className="hero-title rv" style={{'--i':1}}>
-            <span className="ht-greeting">{lang==='ar'?'مرحباً، أنا':'Hi, I'm'}</span>
+            <span className="ht-greeting">{greeting}</span>
             <span className="ht-name">Fadi Medkour</span>
             <span className="ht-role">
-              <span className="ht-role-prefix">{lang==='ar'?'—':''}</span>
               <span className="typed-text">{role}</span>
               <span className="typed-cursor">_</span>
             </span>
@@ -95,7 +96,7 @@ export default function Hero() {
             {t.hero.desc2}
           </p>
 
-          {/* Stats row — clean, no floating cards */}
+          {/* Inline stats */}
           <div className="hero-stats-row rv" style={{'--i':3}}>
             <Counter target={3}  label={t.hero.stat1} />
             <div className="hs-sep" />
@@ -104,7 +105,7 @@ export default function Hero() {
             <Counter target={12} label={t.hero.stat3} />
           </div>
 
-          {/* CTA buttons */}
+          {/* CTAs */}
           <div className="hero-btns rv" style={{'--i':4}}>
             <a href="#contact" className="btn-primary">
               {t.hero.cta1}
@@ -113,45 +114,45 @@ export default function Hero() {
               </svg>
             </a>
             <a href="#projects" className="btn-ghost">
-              {lang==='ar'?'المشاريع':'View Work'}
+              {lang==='ar' ? 'المشاريع' : 'View Work'}
             </a>
           </div>
 
-          {/* Code snippet — more compact */}
+          {/* Code card */}
           <div className="hero-code rv" style={{'--i':5}}>
             <div className="hc-header">
-              <span className="hcd r" /><span className="hcd y" /><span className="hcd g" />
+              <span className="hcd r"/><span className="hcd y"/><span className="hcd g"/>
               <span className="hc-title">portfolio.ts</span>
-              <div className="hc-cursor-blink" />
+              <div className="hc-cursor-blink"/>
             </div>
             <div className="hc-body">
-              <div className="hcl"><span className="hcn">1</span><span className="hck">const</span><span className="hcv"> dev</span><span className="hco"> = </span><span className="hcb">{'{'}</span></div>
-              <div className="hcl"><span className="hcn">2</span><span className="hcs">  </span><span className="hckey">name</span><span className="hco">:</span><span className="hcstr"> 'Fadi Medkour'</span><span className="hco">,</span></div>
-              <div className="hcl"><span className="hcn">3</span><span className="hcs">  </span><span className="hckey">stack</span><span className="hco">:</span><span className="hcstr"> 'Full Stack'</span><span className="hco">,</span></div>
+              <div className="hcl"><span className="hcn">1</span><span className="hck">const</span><span className="hcv"> dev</span><span className="hco"> = {'{'}</span></div>
+              <div className="hcl"><span className="hcn">2</span><span className="hcs">  </span><span className="hckey">name</span><span className="hco">:</span><span className="hcstr"> &apos;Fadi Medkour&apos;</span><span className="hco">,</span></div>
+              <div className="hcl"><span className="hcn">3</span><span className="hcs">  </span><span className="hckey">stack</span><span className="hco">:</span><span className="hcstr"> &apos;Full Stack&apos;</span><span className="hco">,</span></div>
               <div className="hcl"><span className="hcn">4</span><span className="hcs">  </span><span className="hckey">open</span><span className="hco">:</span><span className="hcbool"> true</span></div>
-              <div className="hcl"><span className="hcn">5</span><span className="hcb">{'}'}</span></div>
+              <div className="hcl"><span className="hcn">5</span><span className="hco">{'}'}</span></div>
             </div>
           </div>
         </div>
 
-        {/* ── RIGHT — clean photo ── */}
+        {/* ── RIGHT: clean photo ── */}
         <div className="hero-right rv-right" style={{'--i':0}}>
-          {/* Clean photo without any overlaid elements */}
-          <div className="photo-container" style={{
-            transform: `perspective(1000px) rotateY(${mouse.x*-5}deg) rotateX(${mouse.y*4}deg)`
-          }}>
-            {/* Glow border only */}
-            <div className="photo-glow-border" />
+          <div
+            className="photo-container"
+            style={{ transform:`perspective(1000px) rotateY(${mouse.x*-5}deg) rotateX(${mouse.y*4}deg)` }}
+          >
+            <div className="photo-glow-border"/>
             <div className="photo-img-wrap">
-              <img src={profileImg} alt="Fadi Medkour" className="photo-img" />
+              <img src={profileImg} alt="Fadi Medkour" className="photo-img"/>
+              <div className="photo-scanline"/>
             </div>
           </div>
 
-          {/* Stack icons displayed next to photo, not on it */}
+          {/* Stack icons row — BELOW photo */}
           <div className="photo-stack-row">
-            {[svgReact,svgNode,svgJS,svgMongo,svgGit].map((s,i)=>(
+            {STACK_ICONS.map((s, i) => (
               <div className="psr-icon" key={i} style={{'--i':i}}>
-                <img src={s} alt="" />
+                <img src={s} alt=""/>
               </div>
             ))}
             <span className="psr-label">Tech Stack</span>
@@ -159,21 +160,19 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* Scrolling tech strip */}
+      {/* Tech strip */}
       <div className="tech-strip">
         <div className="ts-inner">
-          {doubled.map((tk,i)=>(
+          {doubled.map((tk, i) => (
             <div className="ts-item" key={i}>
-              <img src={tk.src} alt={tk.name} />
-              <span>{tk.name}</span>
+              <img src={tk.src} alt={tk.name}/><span>{tk.name}</span>
             </div>
           ))}
         </div>
       </div>
 
-      {/* Scroll indicator */}
       <a href="#about" className="scroll-ind">
-        <div className="si-mouse"><div className="si-wheel" /></div>
+        <div className="si-mouse"><div className="si-wheel"/></div>
         <span>scroll</span>
       </a>
     </section>
