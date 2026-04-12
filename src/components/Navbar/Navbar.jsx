@@ -5,9 +5,9 @@ import './Navbar.css'
 export default function Navbar() {
   const { t, lang, toggle } = useContext(LangCtx)
   const [scrolled, setScrolled] = useState(false)
-  const [active, setActive] = useState('hero')
-  const [open, setOpen] = useState(false)
-  const [prog, setProg] = useState(0)
+  const [active, setActive]     = useState('hero')
+  const [open, setOpen]         = useState(false)
+  const [prog, setProg]         = useState(0)
 
   const LINKS = [
     { href:'#about',      label: t.nav.about      },
@@ -32,40 +32,53 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', fn)
   }, [])
 
-  const close = () => setOpen(false)
-
   return (
     <>
-      <div className="scroll-progress" style={{ width: prog + '%' }} />
+      {/* Reading progress */}
+      <div className="nav-progress">
+        <div className="nav-progress-bar" style={{ width: prog + '%' }} />
+      </div>
 
       <nav className={`navbar${scrolled ? ' scrolled' : ''}`}>
-        <a href="#hero" className="nav-logo">
-          <span className="logo-box">F</span>adi<span className="logo-dot">.</span>dev
+        {/* Empty logo area */}
+        <a href="#hero" className="nav-logo" aria-label="Home">
+          <span className="nav-logo-ring" />
+          <span className="nav-logo-dot" />
         </a>
 
+        {/* Desktop links */}
         <div className="nav-links">
-          {LINKS.map(({ href, label }) => (
-            <a key={href} href={href} className={active === href.slice(1) ? 'active' : ''}>
-              {label}
-              {active === href.slice(1) && <span className="nav-active-dot" />}
+          {LINKS.map(({ href, label }, i) => (
+            <a
+              key={href}
+              href={href}
+              className={active === href.slice(1) ? 'active' : ''}
+              style={{ '--idx': i }}
+            >
+              <span className="nl-num">0{i + 1}</span>
+              <span className="nl-label">{label}</span>
+              <span className="nl-line" />
             </a>
           ))}
         </div>
 
-        <div className="nav-right">
-          {/* Language Toggle */}
-          <button className="lang-btn" onClick={toggle} title="Switch language" aria-label="Toggle language">
-            <span className={lang === 'en' ? 'lang-active' : ''}>EN</span>
-            <span className="lang-sep">|</span>
-            <span className={lang === 'ar' ? 'lang-active' : ''}>AR</span>
+        <div className="nav-actions">
+          {/* Language toggle */}
+          <button className="lang-toggle" onClick={toggle} aria-label="Toggle language">
+            <span className={lang === 'en' ? 'lt-active' : ''}>EN</span>
+            <span className="lt-track">
+              <span className="lt-thumb" style={{ transform: lang === 'ar' ? 'translateX(18px)' : 'none' }} />
+            </span>
+            <span className={lang === 'ar' ? 'lt-active' : ''}>AR</span>
           </button>
 
-          <a href="#contact" className="nav-cta">
-            <span className="cta-dot" />{t.nav.cta}
+          <a href="#contact" className="nav-hire">
+            <span className="nh-pulse" />
+            {t.nav.cta}
           </a>
 
           <button
-            className={`hamburger${open ? ' open' : ''}`}
+            className={`nav-burger${open ? ' open' : ''}`}
             onClick={() => setOpen(o => !o)}
             aria-label="Menu"
           >
@@ -74,20 +87,31 @@ export default function Navbar() {
         </div>
       </nav>
 
-      <div className={`mob-menu${open ? ' open' : ''}`}>
-        {LINKS.map(({ href, label }, i) => (
-          <a key={href} href={href} onClick={close} className={active === href.slice(1) ? 'mob-active' : ''}>
-            <span className="mob-num">{String(i + 1).padStart(2, '0')}</span>
-            {label}
-          </a>
-        ))}
-        <div className="mob-bottom">
-          <button className="lang-btn lang-btn-mob" onClick={toggle}>
-            <span className={lang === 'en' ? 'lang-active' : ''}>EN</span>
-            <span className="lang-sep">|</span>
-            <span className={lang === 'ar' ? 'lang-active' : ''}>AR</span>
+      {/* Mobile drawer */}
+      <div className={`nav-drawer${open ? ' open' : ''}`}>
+        <div className="drawer-inner">
+          {LINKS.map(({ href, label }, i) => (
+            <a
+              key={href}
+              href={href}
+              className={active === href.slice(1) ? 'da-active' : ''}
+              onClick={() => setOpen(false)}
+              style={{ '--j': i }}
+            >
+              <span className="da-num">0{i + 1} —</span>
+              <span>{label}</span>
+            </a>
+          ))}
+        </div>
+        <div className="drawer-foot">
+          <button className="lang-toggle lang-toggle-mob" onClick={toggle} aria-label="Toggle language">
+            <span className={lang === 'en' ? 'lt-active' : ''}>EN</span>
+            <span className="lt-track">
+              <span className="lt-thumb" style={{ transform: lang === 'ar' ? 'translateX(18px)' : 'none' }} />
+            </span>
+            <span className={lang === 'ar' ? 'lt-active' : ''}>AR</span>
           </button>
-          <a href="#contact" onClick={close} className="mob-cta-link">{t.nav.cta} →</a>
+          <a href="#contact" onClick={() => setOpen(false)} className="da-cta">{t.nav.cta} →</a>
         </div>
       </div>
     </>
