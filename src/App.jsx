@@ -4,6 +4,7 @@ import { useScrollReveal } from './hooks/useScrollReveal.js'
 import { T }               from './i18n.js'
 
 import MouseFollower  from './components/UI/MouseFollower.jsx'
+import MouseTrail     from './components/UI/MouseTrail.jsx'
 import LoadingScreen  from './components/UI/LoadingScreen.jsx'
 import Particles      from './components/UI/Particles.jsx'
 import ToastContainer from './components/UI/Toast.jsx'
@@ -29,6 +30,7 @@ export default function App() {
     <LangCtx.Provider value={{ lang, toggle, t, isAr }}>
       <LoadingScreen />
       <Particles />
+      <MouseTrail />
       <MouseFollower />
       <ToastContainer />
       <BackToTop />

@@ -12,12 +12,13 @@ import './About.css'
 const CHIPS_EN = [{e:'🎓',l:'CS Student'},{e:'🎨',l:'Illustrator'},{e:'⚡',l:'Agile / Git'},{e:'💡',l:'Clean Code'},{e:'🇩🇿',l:'Algeria'}]
 const CHIPS_AR = [{e:'🎓',l:'طالب جامعي'},{e:'🎨',l:'إلستريتور'},{e:'⚡',l:'Agile / Git'},{e:'💡',l:'كود نظيف'},{e:'🇩🇿',l:'الجزائر'}]
 
-const SKILLS_EN = [
-  { name:'React.js',    pct:85, color:'#00d8ff', src:svgReact },
-  { name:'Node.js',     pct:83, color:'#339933', src:svgNode  },
-  { name:'JavaScript',  pct:88, color:'#f5de19', src:svgJS    },
-  { name:'MongoDB',     pct:80, color:'#58aa50', src:svgMongo },
-  { name:'Tailwind',    pct:82, color:'#44a8b3', src:svgTW    },
+/* Tech stack with no percentages — just name + icon */
+const STACK = [
+  { src: svgReact, name: 'React.js',   color: '#00d8ff' },
+  { src: svgNode,  name: 'Node.js',    color: '#339933' },
+  { src: svgJS,    name: 'JavaScript', color: '#f5de19' },
+  { src: svgMongo, name: 'MongoDB',    color: '#58aa50' },
+  { src: svgTW,    name: 'Tailwind',   color: '#44a8b3' },
 ]
 
 export default function About() {
@@ -26,23 +27,21 @@ export default function About() {
   const { ref, style, onMouseMove, onMouseLeave } = useMouseTilt(5)
 
   const facts = [
-    ['3+',   lang==='ar'?'سنوات خبرة':'Years Exp'],
-    ['20+',  lang==='ar'?'مشروع':'Projects'],
-    ['12+',  lang==='ar'?'تقنية':'Technologies'],
-    ['100%', lang==='ar'?'تفانٍ':'Dedication'],
+    ['3+',   lang==='ar' ? 'سنوات خبرة' : 'Yrs Exp'],
+    ['20+',  lang==='ar' ? 'مشروع'      : 'Projects'],
+    ['12+',  lang==='ar' ? 'تقنية'      : 'Tech'],
+    ['100%', lang==='ar' ? 'تفانٍ'      : 'Dedication'],
   ]
 
   return (
     <section id="about" className="about">
       <div className="about-wrap">
 
-        {/* ── Left: photo — clean, no overlays ── */}
+        {/* ── Photo column ── */}
         <div className="about-photo rv-left">
-          {/* Frame corners */}
-          <div className="ab-frame-tl" />
-          <div className="ab-frame-br" />
+          <div className="ab-frame-tl" /><div className="ab-frame-br" />
 
-          {/* Clean photo with tilt */}
+          {/* Clean 3D tilt photo */}
           <div
             ref={ref} style={style}
             className="ab-photo-box"
@@ -52,7 +51,7 @@ export default function About() {
             <img src={profileImg} alt="Fadi Medkour" className="ab-photo" />
           </div>
 
-          {/* Facts grid — BELOW photo, not on it */}
+          {/* Facts grid — clean, no percentages */}
           <div className="ab-facts">
             {facts.map(([num, label]) => (
               <div key={num+label} className="ab-fact">
@@ -62,21 +61,21 @@ export default function About() {
             ))}
           </div>
 
-          {/* Skill bars — next to photo in column */}
-          <div className="ab-mini-skills">
-            {SKILLS_EN.map(({ name, pct, color, src }, i) => (
-              <div key={name} className="ab-skill-row rv" style={{'--i':i}}>
-                <img src={src} alt={name} className="abs-icon" />
-                <div className="abs-bar-wrap">
-                  <div className="abs-bar" style={{'--w':pct+'%','--c':color}} />
+          {/* Tech stack — icon + name only, NO percentages */}
+          <div className="ab-stack">
+            <div className="ab-stack-label">{lang === 'ar' ? 'حزمة التقنيات' : 'Tech Stack'}</div>
+            <div className="ab-stack-icons">
+              {STACK.map(({ src, name, color }, i) => (
+                <div className="ab-si" key={name} style={{ '--i': i, '--c': color }} title={name}>
+                  <img src={src} alt={name} />
+                  <span>{name}</span>
                 </div>
-                <span className="abs-pct" style={{color}}>{pct}%</span>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
 
-        {/* ── Right: text ── */}
+        {/* ── Text column ── */}
         <div className="about-text">
           <div className="section-badge rv" style={{'--i':0}}>{t.about.badge}</div>
           <h2 className="section-title rv" style={{'--i':1}}>
@@ -98,6 +97,7 @@ export default function About() {
             <a href="#projects" className="btn-ghost">{t.about.cta2}</a>
           </div>
         </div>
+
       </div>
     </section>
   )

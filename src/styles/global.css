@@ -76,3 +76,15 @@ section{padding:120px 6%;position:relative;z-index:1}
 
 @media(max-width:900px){section{padding:90px 5%}}
 @media(max-width:600px){section{padding:75px 4%}}
+
+/* ─── MAGNETIC EFFECT ─── */
+.exp-item { will-change: transform }
+
+/* ─── SECTION DIVIDERS ─── */
+section + section::before {
+  content: '';
+  display: block;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(20,99,243,.15), transparent);
+  margin: 0 6%;
+}
