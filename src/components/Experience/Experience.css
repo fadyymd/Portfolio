@@ -53,3 +53,7 @@
 .ep-chip:hover{transform:translateY(-2px);box-shadow:0 4px 14px rgba(0,0,0,.3)}
 
 @media(max-width:900px){.exp-layout{grid-template-columns:1fr}.exp-list{position:static}.exp-panel{position:static;opacity:1;transform:none;pointer-events:auto;display:none}.exp-panel.visible{display:block}}
+
+/* enhanced active panel glow */
+.exp-panel.visible { box-shadow: 0 8px 40px rgba(0,0,0,.4), inset 0 1px 0 rgba(255,255,255,.04) }
+.exp-panel.visible .ep-num { animation: fadeUp .4s var(--spring) both }

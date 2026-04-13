@@ -2,7 +2,6 @@
 .contact-wrap{max-width:1060px;margin:0 auto}
 .contact-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:4rem;align-items:start}
 
-/* Info */
 .ci-top{margin-bottom:2rem}
 .ci-top h3{font-family:var(--ff-d);font-size:1.35rem;font-weight:700;margin-bottom:.5rem}
 .ci-top p{font-size:.9rem;color:var(--t2);line-height:1.78}
@@ -10,53 +9,69 @@
 .ci-links{display:flex;flex-direction:column;gap:.6rem;margin-bottom:1.5rem}
 .ci-link{
   display:flex;align-items:center;gap:.9rem;
-  padding:.9rem 1.1rem;border-radius:13px;
-  background:var(--bg2);border:1px solid var(--bdr);
-  transition:all .25s var(--bounce);color:inherit;
-  position:relative;overflow:hidden;
+  padding:.9rem 1.1rem;border-radius:14px;
+  background:rgba(9,20,40,.8);border:1px solid rgba(255,255,255,.06);
+  transition:all .28s var(--bounce);color:inherit;position:relative;overflow:hidden;
 }
-.ci-link::before{content:'';position:absolute;inset:0;background:linear-gradient(90deg,transparent,rgba(20,99,243,.04),transparent);transform:scaleX(0);transform-origin:left;transition:transform .3s var(--ease)}
-.ci-link:hover:not(.no-link){border-color:var(--bdr2);background:var(--bg3);transform:translateX(5px)}
-.ci-link:hover:not(.no-link)::before{transform:scaleX(1)}
+.ci-link::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,transparent,rgba(20,99,243,.05),transparent);transform:scaleX(0);transform-origin:left;transition:transform .35s var(--ease)}
+.ci-link:hover:not(.no-link){border-color:rgba(20,99,243,.3);background:rgba(20,99,243,.06);transform:translateX(5px)}
+.ci-link:hover:not(.no-link)::after{transform:scaleX(1)}
 .no-link{cursor:default}
-.ci-icon{width:38px;height:38px;background:var(--bgl);border:1px solid var(--bdr);border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:transform .25s var(--bounce)}
-.ci-link:hover .ci-icon{transform:scale(1.1) rotate(-5deg)}
+.ci-icon{width:38px;height:38px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.07);border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:transform .28s var(--bounce),background .2s}
+.ci-link:hover .ci-icon{transform:scale(1.12) rotate(-6deg);background:rgba(20,99,243,.12)}
 .ci-icon svg{width:18px;height:18px}
 .ci-text small{display:block;font-family:var(--ff-m);font-size:.6rem;color:var(--t3);text-transform:uppercase;letter-spacing:.1em;margin-bottom:2px}
 .ci-text span{display:block;font-size:.84rem;color:var(--t2)}
-.ci-arr{margin-left:auto;color:var(--t3);transition:transform .2s,color .2s;flex-shrink:0}
-.ci-link:hover .ci-arr{transform:translateX(4px);color:var(--bluel)}
+.ci-arr{margin-left:auto;color:var(--t3);transition:transform .25s,color .2s;flex-shrink:0}
+.ci-link:hover .ci-arr{transform:translateX(5px);color:var(--bluel)}
 
-.ci-avail{display:flex;align-items:center;gap:.9rem;padding:1rem 1.2rem;border-radius:13px;background:rgba(16,185,129,.08);border:1px solid rgba(16,185,129,.25);margin-bottom:1.2rem;transition:box-shadow .3s}
-.ci-avail:hover{box-shadow:0 0 20px rgba(16,185,129,.1)}
+.ci-avail{display:flex;align-items:center;gap:.9rem;padding:1rem 1.2rem;border-radius:14px;background:rgba(16,185,129,.07);border:1px solid rgba(16,185,129,.22);margin-bottom:1.2rem;transition:box-shadow .3s}
+.ci-avail:hover{box-shadow:0 0 24px rgba(16,185,129,.1)}
 .avail-dot{width:10px;height:10px;border-radius:50%;background:#10b981;flex-shrink:0;box-shadow:0 0 10px rgba(16,185,129,.7);animation:pulse 2s ease infinite}
 .avail-title{font-size:.88rem;font-weight:600;color:#10b981}
 .avail-sub{font-size:.76rem;color:var(--t3);margin-top:2px}
 
 .ci-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:.6rem}
-.ci-stat{background:var(--bg2);border:1px solid var(--bdr);border-radius:12px;padding:.8rem;text-align:center;transition:all .25s var(--bounce)}
-.ci-stat:hover{border-color:var(--bdr2);transform:translateY(-3px);box-shadow:0 8px 24px rgba(0,0,0,.4)}
+.ci-stat{background:rgba(9,20,40,.8);border:1px solid rgba(255,255,255,.06);border-radius:12px;padding:.8rem;text-align:center;transition:all .28s var(--bounce)}
+.ci-stat:hover{border-color:rgba(20,99,243,.3);transform:translateY(-4px);box-shadow:0 10px 28px rgba(0,0,0,.4)}
 .cs-num{display:block;font-family:var(--ff-d);font-size:1rem;font-weight:800;color:var(--blue)}
 .cs-lbl{font-family:var(--ff-m);font-size:.58rem;color:var(--t3);text-transform:uppercase;letter-spacing:.06em;margin-top:3px;display:block}
 
-/* Form */
+/* Form with floating labels */
 .c-form{display:flex;flex-direction:column;gap:1rem}
 .form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+
 .fg{display:flex;flex-direction:column;gap:.42rem}
 .fg label{font-size:.8rem;font-weight:500;color:var(--t2)}
+
 .msg-label-row{display:flex;align-items:center;justify-content:space-between}
 .char-count{font-family:var(--ff-m);font-size:.65rem;color:var(--t3);transition:color .2s}
 .char-count.warn{color:var(--gold)}
+
 .fi-wrap{position:relative}
 .fi-wrap input,.fi-wrap textarea{
-  width:100%;background:var(--bg2);border:1.5px solid var(--bdr);border-radius:11px;
+  width:100%;background:rgba(9,20,40,.9);
+  border:1.5px solid rgba(255,255,255,.07);border-radius:12px;
   padding:.82rem 1rem;font-family:var(--ff-b);font-size:.88rem;color:var(--t1);
-  outline:none;resize:vertical;transition:border-color .2s,box-shadow .2s,background .2s;
+  outline:none;resize:vertical;
+  transition:border-color .25s,box-shadow .25s,background .25s;
 }
 .fi-wrap input::placeholder,.fi-wrap textarea::placeholder{color:var(--t3)}
-.fi-wrap input:focus,.fi-wrap textarea:focus{border-color:var(--bdr2);box-shadow:0 0 0 3px rgba(20,99,243,.12);background:var(--bg3)}
-.fi-border{position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:0;height:2px;background:linear-gradient(90deg,var(--blue),var(--cyan));transition:width .35s var(--ease);border-radius:2px}
+.fi-wrap input:focus,.fi-wrap textarea:focus{
+  border-color:rgba(20,99,243,.5);
+  box-shadow:0 0 0 3px rgba(20,99,243,.1);
+  background:rgba(9,20,40,1);
+}
+
+/* Animated underline on focus */
+.fi-border{
+  position:absolute;bottom:0;left:50%;transform:translateX(-50%);
+  width:0;height:2px;
+  background:linear-gradient(90deg,var(--blue),var(--cyan));
+  transition:width .4s var(--spring);border-radius:2px;
+}
 .fi-wrap:focus-within .fi-border{width:100%}
+
 .fg.err .fi-wrap input,.fg.err .fi-wrap textarea{border-color:rgba(239,68,68,.5)}
 .fi-err{font-size:.75rem;color:var(--red);margin-top:-2px}
 
@@ -64,21 +79,18 @@
   display:flex;align-items:center;justify-content:center;gap:8px;
   padding:.9rem 2rem;
   background:linear-gradient(135deg,var(--blue),#0033cc);
-  color:#fff;border:none;border-radius:12px;
-  font-size:.9rem;font-weight:700;
-  transition:all .3s var(--bounce);
-  box-shadow:0 4px 28px rgba(20,99,243,.42);
-  position:relative;overflow:hidden;
+  color:#fff;border:none;border-radius:12px;font-size:.9rem;font-weight:700;
+  transition:all .32s var(--bounce);
+  box-shadow:0 4px 28px rgba(20,99,243,.42);position:relative;overflow:hidden;
 }
-.f-btn::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,.12),transparent);opacity:0;transition:opacity .25s}
+.f-btn::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,.14),transparent);opacity:0;transition:opacity .25s}
 .f-btn:hover::before{opacity:1}
-.f-btn:hover:not(:disabled){transform:translateY(-3px);box-shadow:0 10px 38px rgba(20,99,243,.55)}
+.f-btn:hover:not(:disabled){transform:translateY(-3px);box-shadow:0 12px 40px rgba(20,99,243,.55)}
 .f-btn:disabled{opacity:.75;cursor:not-allowed}
 .f-btn.done{background:linear-gradient(135deg,var(--green),#047857);box-shadow:0 4px 22px rgba(16,185,129,.4)}
 .sp{width:17px;height:17px;border:2px solid rgba(255,255,255,.3);border-top-color:#fff;border-radius:50%;animation:spin .75s linear infinite}
 .form-note{font-size:.75rem;color:var(--t3);text-align:center;font-family:var(--ff-m)}
 
-/* RTL */
 [dir="rtl"] .ci-arr{transform:scaleX(-1)}
 [dir="rtl"] .ci-link:hover:not(.no-link){transform:translateX(-5px)}
 [dir="rtl"] .fi-border{left:auto;right:50%;transform:translateX(50%)}

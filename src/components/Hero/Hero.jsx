@@ -19,7 +19,6 @@ const TICKER = [
 ]
 const ROLES_EN = ['Full Stack Dev','React Engineer','Backend Builder','UI Craftsman']
 const ROLES_AR = ['مطوّر Full Stack','مهندس React','مطوّر خلفي','مصمم واجهات']
-const STACK_ICONS = [svgReact,svgNode,svgJS,svgMongo,svgGit]
 
 function Counter({ target, label }) {
   const [n, setN] = useState(0)
@@ -42,10 +41,67 @@ function Counter({ target, label }) {
   )
 }
 
+/* Interactive terminal lines */
+const LINES_EN = [
+  { t:0,   text:'$ node --version',       color:'#6880a0' },
+  { t:600, text:'v20.11.0',               color:'#10b981' },
+  { t:1100,text:'$ npm run dev',           color:'#6880a0' },
+  { t:1800,text:'✓ Ready on :5173',       color:'#5b9bff' },
+  { t:2400,text:'> Building the future…', color:'#f0b429' },
+]
+const LINES_AR = [
+  { t:0,   text:'$ node --version',       color:'#6880a0' },
+  { t:600, text:'v20.11.0',               color:'#10b981' },
+  { t:1100,text:'$ npm run dev',           color:'#6880a0' },
+  { t:1800,text:'✓ جاهز على :5173',       color:'#5b9bff' },
+  { t:2400,text:'> نبني المستقبل…',       color:'#f0b429' },
+]
+
+function Terminal({ lang }) {
+  const lines = lang === 'ar' ? LINES_AR : LINES_EN
+  const [visible, setVisible] = useState([])
+  const [blink, setBlink] = useState(true)
+  const done = useRef(false)
+  const ref  = useRef()
+
+  useEffect(() => {
+    const obs = new IntersectionObserver(([e]) => {
+      if (e.isIntersecting && !done.current) {
+        done.current = true
+        lines.forEach(({ t, text, color }) =>
+          setTimeout(() => setVisible(v => [...v, { text, color }]), t)
+        )
+        const total = lines[lines.length-1].t + 600
+        setTimeout(() => setBlink(true), total)
+      }
+    }, { threshold: .5 })
+    if (ref.current) obs.observe(ref.current)
+    return () => obs.disconnect()
+  }, [])
+
+  return (
+    <div className="terminal" ref={ref}>
+      <div className="term-header">
+        <span className="th-dot r"/><span className="th-dot y"/><span className="th-dot g"/>
+        <span className="term-title">portfolio.sh</span>
+        <div className="term-status"><span className="term-pulse"/>LIVE</div>
+      </div>
+      <div className="term-body">
+        {visible.map((l, i) => (
+          <div key={i} className="term-line" style={{ '--d': `${i * 40}ms` }}>
+            <span className="term-prompt" style={{ color: l.color }}>{l.text}</span>
+          </div>
+        ))}
+        {blink && <span className="term-caret">▋</span>}
+      </div>
+    </div>
+  )
+}
+
 export default function Hero() {
   const { t, lang } = useContext(LangCtx)
   const roles = lang === 'ar' ? ROLES_AR : ROLES_EN
-  const role = useTypewriter(roles)
+  const role  = useTypewriter(roles)
   const doubled = [...TICKER, ...TICKER]
   const [mouse, setMouse] = useState({ x:0, y:0 })
   const heroRef = useRef()
@@ -64,25 +120,27 @@ export default function Hero() {
 
   return (
     <section id="hero" className="hero" ref={heroRef}>
-      <div className="hero-mesh" />
+      {/* Animated grid */}
+      <div className="hero-grid-bg" />
+      {/* Orbs */}
       <div className="orb orb-1" />
       <div className="orb orb-2" />
       <div className="orb orb-3" />
-      <div className="orb-mouse" style={{ transform:`translate(${mouse.x*35}px,${mouse.y*35}px)` }} />
+      <div className="orb-follow" style={{ transform:`translate(${mouse.x*40}px,${mouse.y*40}px)` }} />
+      {/* Radial spotlight */}
+      <div className="hero-spotlight" style={{ left:`${50+mouse.x*20}%`, top:`${50+mouse.y*20}%` }} />
 
       <div className="hero-inner">
         {/* ── LEFT ── */}
         <div className="hero-left">
-          {/* Availability badge */}
           <div className="hero-avail rv" style={{'--i':0}}>
-            <span className="avail-ring" />
-            <span className="avail-dot" />
-            <span>{lang==='ar' ? 'متاح للعمل الحر' : 'Available for Freelance'}</span>
+            <span className="avail-ring"/>
+            <span className="avail-dot"/>
+            <span>{lang==='ar' ? 'متاح للعمل' : 'Available for Freelance'}</span>
             <span className="avail-sep">·</span>
             <span className="avail-loc">🇩🇿 Algiers</span>
           </div>
 
-          {/* Title */}
           <h1 className="hero-title rv" style={{'--i':1}}>
             <span className="ht-greeting">{greeting}</span>
             <span className="ht-name">Fadi Medkour</span>
@@ -92,11 +150,8 @@ export default function Hero() {
             </span>
           </h1>
 
-          <p className="hero-desc rv" style={{'--i':2}}>
-            {t.hero.desc2}
-          </p>
+          <p className="hero-desc rv" style={{'--i':2}}>{t.hero.desc2}</p>
 
-          {/* Inline stats */}
           <div className="hero-stats-row rv" style={{'--i':3}}>
             <Counter target={3}  label={t.hero.stat1} />
             <div className="hs-sep" />
@@ -105,7 +160,6 @@ export default function Hero() {
             <Counter target={12} label={t.hero.stat3} />
           </div>
 
-          {/* CTAs */}
           <div className="hero-btns rv" style={{'--i':4}}>
             <a href="#contact" className="btn-primary">
               {t.hero.cta1}
@@ -118,61 +172,55 @@ export default function Hero() {
             </a>
           </div>
 
-          {/* Code card */}
-          <div className="hero-code rv" style={{'--i':5}}>
-            <div className="hc-header">
-              <span className="hcd r"/><span className="hcd y"/><span className="hcd g"/>
-              <span className="hc-title">portfolio.ts</span>
-              <div className="hc-cursor-blink"/>
-            </div>
-            <div className="hc-body">
-              <div className="hcl"><span className="hcn">1</span><span className="hck">const</span><span className="hcv"> dev</span><span className="hco"> = {'{'}</span></div>
-              <div className="hcl"><span className="hcn">2</span><span className="hcs">  </span><span className="hckey">name</span><span className="hco">:</span><span className="hcstr"> &apos;Fadi Medkour&apos;</span><span className="hco">,</span></div>
-              <div className="hcl"><span className="hcn">3</span><span className="hcs">  </span><span className="hckey">stack</span><span className="hco">:</span><span className="hcstr"> &apos;Full Stack&apos;</span><span className="hco">,</span></div>
-              <div className="hcl"><span className="hcn">4</span><span className="hcs">  </span><span className="hckey">open</span><span className="hco">:</span><span className="hcbool"> true</span></div>
-              <div className="hcl"><span className="hcn">5</span><span className="hco">{'}'}</span></div>
-            </div>
+          {/* Interactive Terminal — replaces static code card */}
+          <div className="rv" style={{'--i':5}}>
+            <Terminal lang={lang} />
           </div>
         </div>
 
-        {/* ── RIGHT: clean photo ── */}
+        {/* ── RIGHT ── */}
         <div className="hero-right rv-right" style={{'--i':0}}>
           <div
             className="photo-container"
-            style={{ transform:`perspective(1000px) rotateY(${mouse.x*-5}deg) rotateX(${mouse.y*4}deg)` }}
+            style={{ transform:`perspective(1100px) rotateY(${mouse.x*-6}deg) rotateX(${mouse.y*5}deg)` }}
           >
-            <div className="photo-glow-border"/>
-            <div className="photo-img-wrap">
+            {/* Animated gradient border */}
+            <div className="photo-border-anim"/>
+            <div className="photo-frame">
               <img src={profileImg} alt="Fadi Medkour" className="photo-img"/>
-              <div className="photo-scanline"/>
+              <div className="photo-overlay-gradient"/>
             </div>
+
+            {/* Corner decorations */}
+            <div className="photo-corner pc-tl"/>
+            <div className="photo-corner pc-br"/>
           </div>
 
-          {/* Stack icons row — BELOW photo */}
-          <div className="photo-stack-row">
-            {STACK_ICONS.map((s, i) => (
-              <div className="psr-icon" key={i} style={{'--i':i}}>
+          {/* Animated icon strip */}
+          <div className="icon-strip">
+            {[svgReact,svgNode,svgJS,svgMongo,svgGit].map((s,i)=>(
+              <div className="is-icon" key={i} style={{'--i':i}}>
                 <img src={s} alt=""/>
               </div>
             ))}
-            <span className="psr-label">Tech Stack</span>
+            <span className="is-label">Stack</span>
           </div>
         </div>
       </div>
 
-      {/* Tech strip */}
-      <div className="tech-strip">
-        <div className="ts-inner">
-          {doubled.map((tk, i) => (
-            <div className="ts-item" key={i}>
+      {/* Scrolling marquee */}
+      <div className="hero-marquee">
+        <div className="marquee-inner">
+          {doubled.map((tk,i)=>(
+            <div className="mq-item" key={i}>
               <img src={tk.src} alt={tk.name}/><span>{tk.name}</span>
             </div>
           ))}
         </div>
       </div>
 
-      <a href="#about" className="scroll-ind">
-        <div className="si-mouse"><div className="si-wheel"/></div>
+      <a href="#about" className="scroll-hint">
+        <div className="sh-wheel"><div className="sh-ball"/></div>
         <span>scroll</span>
       </a>
     </section>

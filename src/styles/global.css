@@ -1,16 +1,19 @@
 /* ================================================================
-   FADI MEDKOUR — Portfolio v7  |  Pro · Dark · Interactive
+   FADI MEDKOUR — Portfolio v9  |  Ultra Pro · Dark · Interactive
 ================================================================ */
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 
 :root{
   --bg:#030711;--bg1:#060d1f;--bg2:#091428;--bg3:#0c1b32;--bg4:#10223c;
-  --blue:#1463f3;--bluel:#5b9bff;--cyan:#00c8f8;--purple:#8b5cf6;--gold:#f0b429;--green:#10b981;--red:#ef4444;
-  --bdr:rgba(20,99,243,.12);--bdr2:rgba(20,99,243,.35);--bdr3:rgba(20,99,243,.6);
-  --bgl:rgba(20,99,243,.06);
+  --blue:#1463f3;--bluel:#5b9bff;--cyan:#00c8f8;--purple:#8b5cf6;
+  --gold:#f0b429;--green:#10b981;--red:#ef4444;
+  --bdr:rgba(20,99,243,.12);--bdr2:rgba(20,99,243,.35);
+  --bgl:rgba(20,99,243,.07);
   --t1:#edf2ff;--t2:#6880a0;--t3:#243550;
   --ff-d:'Syne',sans-serif;--ff-b:'Inter',sans-serif;--ff-m:'Space Mono',monospace;
-  --ease:cubic-bezier(.4,0,.2,1);--bounce:cubic-bezier(.34,1.56,.64,1);--spring:cubic-bezier(.22,1,.36,1);
+  --ease:cubic-bezier(.4,0,.2,1);
+  --bounce:cubic-bezier(.34,1.56,.64,1);
+  --spring:cubic-bezier(.22,1,.36,1);
 }
 
 html{scroll-behavior:smooth;scroll-padding-top:72px}
@@ -20,10 +23,8 @@ a{text-decoration:none;color:inherit}img{max-width:100%;display:block}button{cur
 ::-webkit-scrollbar{width:3px}::-webkit-scrollbar-track{background:var(--bg)}
 ::-webkit-scrollbar-thumb{background:linear-gradient(var(--blue),var(--cyan));border-radius:3px}
 
-/* Grain */
 body::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.04'/%3E%3C/svg%3E");opacity:.5}
 
-/* Custom cursor */
 @media(min-width:769px){*,*::before,*::after{cursor:none!important}}
 
 /* ─── SCROLL REVEAL ─── */
@@ -39,7 +40,8 @@ section{padding:120px 6%;position:relative;z-index:1}
 .section-title em{font-style:normal;background:linear-gradient(135deg,var(--blue),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 .section-sub{color:var(--t2);font-size:.95rem;max-width:520px;line-height:1.82}
 .sec-hdr{margin-bottom:4rem}.sec-hdr-center{text-align:center}
-.sec-hdr-center .section-badge{justify-content:center}.sec-hdr-center .section-sub{margin:0 auto}
+.sec-hdr-center .section-badge{justify-content:center}
+.sec-hdr-center .section-sub{margin:0 auto}
 
 /* ─── BUTTONS ─── */
 .btn-primary{display:inline-flex;align-items:center;gap:8px;padding:.84rem 2rem;background:linear-gradient(135deg,var(--blue),#0035c8);color:#fff;border-radius:12px;font-size:.88rem;font-weight:700;border:none;transition:all .32s var(--bounce);box-shadow:0 4px 28px rgba(20,99,243,.4);position:relative;overflow:hidden}
@@ -52,39 +54,32 @@ section{padding:120px 6%;position:relative;z-index:1}
 .btn-ghost:active{transform:scale(.98)}
 
 /* ─── KEYFRAMES ─── */
-@keyframes fadeUp     {from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}}
-@keyframes blink      {0%,100%{opacity:1}50%{opacity:0}}
-@keyframes pulse      {0%,100%{box-shadow:0 0 0 0 rgba(0,200,248,.6)}60%{box-shadow:0 0 0 9px rgba(0,200,248,0)}}
-@keyframes orbFloat   {0%,100%{transform:translate(0,0)}33%{transform:translate(-16px,18px)}66%{transform:translate(14px,-12px)}}
-@keyframes gradShift  {0%{background-position:0%}50%{background-position:100%}100%{background-position:0%}}
-@keyframes bob        {0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(8px)}}
-@keyframes ticker     {0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
-@keyframes shimmer    {0%{left:-100%}100%{left:200%}}
-@keyframes spin       {to{transform:rotate(360deg)}}
-@keyframes grow       {to{width:var(--w)}}
-@keyframes ripple     {to{transform:scale(4);opacity:0}}
-@keyframes slideIn    {from{opacity:0;transform:translateY(-10px)}to{opacity:1;transform:none}}
-@keyframes glowPulse  {0%,100%{opacity:.5}50%{opacity:.9}}
-@keyframes ringPulse  {0%,100%{opacity:1;transform:scale(1)}50%{opacity:0;transform:scale(1.06)}}
-@keyframes toastIn    {from{opacity:0;transform:translateX(30px) scale(.9)}to{opacity:1;transform:none}}
-@keyframes lsBounce   {from{transform:translateY(0) scale(1)}to{transform:translateY(-14px) scale(.9)}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(0,200,248,.6)}60%{box-shadow:0 0 0 9px rgba(0,200,248,0)}}
+@keyframes orbFloat{0%,100%{transform:translate(0,0)}33%{transform:translate(-16px,18px)}66%{transform:translate(14px,-12px)}}
+@keyframes gradShift{0%{background-position:0%}50%{background-position:100%}100%{background-position:0%}}
+@keyframes bob{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(8px)}}
+@keyframes ticker{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+@keyframes shimmer{0%{left:-100%}100%{left:200%}}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes grow{to{width:var(--w)}}
+@keyframes ripple{to{transform:scale(4);opacity:0}}
+@keyframes slideIn{from{opacity:0;transform:translateY(-10px)}to{opacity:1;transform:none}}
+@keyframes glowPulse{0%,100%{opacity:.5}50%{opacity:.9}}
+@keyframes ringPulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:0;transform:scale(1.06)}}
+@keyframes toastIn{from{opacity:0;transform:translateX(30px) scale(.9)}to{opacity:1;transform:none}}
+@keyframes lsBounce{from{transform:translateY(0) scale(1)}to{transform:translateY(-14px) scale(.9)}}
+@keyframes gridPan{0%{background-position:0 0}100%{background-position:52px 52px}}
+@keyframes wheelBounce{0%,100%{transform:translateY(0)}50%{transform:translateY(8px)}}
 
-/* ─── RTL ─── */
+/* Dividers */
+section+section::before{content:'';display:block;height:1px;background:linear-gradient(90deg,transparent,rgba(20,99,243,.14),transparent);margin:0 6%}
+
+/* RTL */
 [dir="rtl"]{direction:rtl}
 [dir="rtl"] .section-badge::before{order:1}
 [dir="rtl"] .exp-item{flex-direction:row-reverse}
 
 @media(max-width:900px){section{padding:90px 5%}}
 @media(max-width:600px){section{padding:75px 4%}}
-
-/* ─── MAGNETIC EFFECT ─── */
-.exp-item { will-change: transform }
-
-/* ─── SECTION DIVIDERS ─── */
-section + section::before {
-  content: '';
-  display: block;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(20,99,243,.15), transparent);
-  margin: 0 6%;
-}
