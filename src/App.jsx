@@ -1,7 +1,5 @@
-import { createContext } from 'react'
-import { useLang }         from './hooks/useLang.js'
+import { useEffect } from 'react'
 import { useScrollReveal } from './hooks/useScrollReveal.js'
-import { T }               from './i18n.js'
 
 import MouseFollower  from './components/UI/MouseFollower.jsx'
 import MouseTrail     from './components/UI/MouseTrail.jsx'
@@ -20,15 +18,10 @@ import Projects   from './components/Projects/Projects.jsx'
 import Contact    from './components/Contact/Contact.jsx'
 import Footer     from './components/Footer/Footer.jsx'
 
-export const LangCtx = createContext({ lang:'en', toggle:()=>{}, t:T.en, isAr:false })
-
 export default function App() {
-  const { lang, toggle, isAr } = useLang()
-  const t = T[lang]
   useScrollReveal()
-
   return (
-    <LangCtx.Provider value={{ lang, toggle, t, isAr }}>
+    <>
       <LoadingScreen />
       <Particles />
       <MouseTrail />
@@ -46,6 +39,6 @@ export default function App() {
         <Contact />
       </main>
       <Footer />
-    </LangCtx.Provider>
+    </>
   )
 }

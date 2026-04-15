@@ -1,42 +1,34 @@
-import { useState, useEffect, useContext } from 'react'
-import { LangCtx } from '../../App.jsx'
+import { useState, useEffect, useRef } from 'react'
 import ThemeToggle from '../UI/ThemeToggle.jsx'
 import './Navbar.css'
 
+const LINKS = [
+  { href:'#about',      label:'About',      num:'01' },
+  { href:'#experience', label:'Experience',  num:'02' },
+  { href:'#skills',     label:'Skills',      num:'03' },
+  { href:'#projects',   label:'Projects',    num:'04' },
+  { href:'#contact',    label:'Contact',     num:'05' },
+]
+
 export default function Navbar() {
-  const { t, lang, toggle } = useContext(LangCtx)
   const [scrolled, setScrolled] = useState(false)
   const [active,   setActive]   = useState('hero')
   const [open,     setOpen]     = useState(false)
   const [prog,     setProg]     = useState(0)
   const [hidden,   setHidden]   = useState(false)
-  const lastY = { current: 0 }
-
-  const LINKS = [
-    { href:'#about',      label: t.nav.about      },
-    { href:'#experience', label: t.nav.experience  },
-    { href:'#skills',     label: t.nav.skills      },
-    { href:'#projects',   label: t.nav.projects    },
-    { href:'#contact',    label: t.nav.contact     },
-  ]
+  const lastY = useRef(0)
 
   useEffect(() => {
     const fn = () => {
       const total = document.documentElement.scrollHeight - window.innerHeight
       setProg(total > 0 ? Math.round((window.scrollY / total) * 100) : 0)
-      setScrolled(window.scrollY > 50)
-
-      // Auto-hide on scroll down, show on scroll up
-      if (window.scrollY > lastY.current + 60 && window.scrollY > 200) {
-        setHidden(true)
-      } else if (window.scrollY < lastY.current - 10) {
-        setHidden(false)
-      }
+      setScrolled(window.scrollY > 60)
+      if (window.scrollY > lastY.current + 80 && window.scrollY > 300) setHidden(true)
+      else if (window.scrollY < lastY.current - 10) setHidden(false)
       lastY.current = window.scrollY
-
       let cur = 'hero'
       document.querySelectorAll('section[id]').forEach(s => {
-        if (window.scrollY >= s.offsetTop - 130) cur = s.id
+        if (window.scrollY >= s.offsetTop - 140) cur = s.id
       })
       setActive(cur)
     }
@@ -46,90 +38,67 @@ export default function Navbar() {
 
   return (
     <>
-      <div className="nav-progress">
-        <div className="npb" style={{ width: prog + '%' }} />
-      </div>
+      <div className="nav-progress" style={{ width: prog + '%' }} />
 
       <nav className={`navbar${scrolled ? ' scrolled' : ''}${hidden ? ' hidden' : ''}`}>
-        {/* Empty logo */}
         <a href="#hero" className="nav-logo" aria-label="Home">
-          <span className="nlogo-ring" />
-          <span className="nlogo-dot" />
+          <div className="nlogo">
+            <span className="nlogo-ring" />
+            <span className="nlogo-core" />
+          </div>
         </a>
 
-        {/* Center links */}
-        <div className="nav-links">
-          {LINKS.map(({ href, label }, i) => (
-            <a
-              key={href}
-              href={href}
-              className={active === href.slice(1) ? 'active' : ''}
-              style={{ '--idx': i }}
-            >
-              <span className="nl-num">{'0'+(i+1)}</span>
-              <span className="nl-text">{label}</span>
-              <span className="nl-bar" />
-            </a>
+        <ul className="nav-links">
+          {LINKS.map(({ href, label, num }) => (
+            <li key={href}>
+              <a href={href} className={active === href.slice(1) ? 'active' : ''}>
+                <span className="nl-num">{num}</span>
+                <span className="nl-label">{label}</span>
+                <span className="nl-underline" />
+              </a>
+            </li>
           ))}
-        </div>
+        </ul>
 
-        {/* Actions */}
         <div className="nav-end">
           <ThemeToggle />
-
-          <button className="lang-pill" onClick={toggle} aria-label="Toggle language">
-            <span className={lang === 'en' ? 'lp-on' : ''}>EN</span>
-            <span className="lp-div">|</span>
-            <span className={lang === 'ar' ? 'lp-on' : ''}>AR</span>
-          </button>
-
-          <a href="#contact" className="nav-hire">
-            <span className="nh-dot" />
-            {t.nav.cta}
+          <a href="#contact" className="nav-cta">
+            <span className="ncta-ping" />
+            Let&apos;s Talk
           </a>
-
           <button
             className={`nav-burger${open ? ' open' : ''}`}
             onClick={() => setOpen(o => !o)}
-            aria-label="Menu"
+            aria-label="Toggle menu"
           >
             <span /><span /><span />
           </button>
         </div>
       </nav>
 
-      {/* Full-screen mobile menu */}
-      <div className={`nav-drawer${open ? ' open' : ''}`}>
-        <button className="drawer-close" onClick={() => setOpen(false)} aria-label="Close">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" width="22" height="22">
+      {/* Full-screen mobile drawer */}
+      <div className={`nav-drawer${open ? ' open' : ''}`} aria-hidden={!open}>
+        <button className="drawer-close" onClick={() => setOpen(false)}>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" width="20" height="20">
             <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
           </svg>
         </button>
-        <div className="drawer-links">
-          {LINKS.map(({ href, label }, i) => (
-            <a
-              key={href}
-              href={href}
-              className={active === href.slice(1) ? 'dl-active' : ''}
-              onClick={() => setOpen(false)}
-              style={{ '--j': i }}
-            >
-              <span className="dl-num">{'0'+(i+1)}</span>
-              <span>{label}</span>
+        <nav className="drawer-nav">
+          {LINKS.map(({ href, label, num }, i) => (
+            <a key={href} href={href} onClick={() => setOpen(false)} style={{ '--j': i }}
+               className={active === href.slice(1) ? 'active' : ''}>
+              <span className="dn-num">{num}</span>
+              <span className="dn-label">{label}</span>
+              <svg className="dn-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" width="18" height="18">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
             </a>
           ))}
-        </div>
+        </nav>
         <div className="drawer-foot">
-          <div className="df-row">
-            <ThemeToggle />
-            <button className="lang-pill lang-pill-lg" onClick={toggle}>
-              <span className={lang === 'en' ? 'lp-on' : ''}>EN</span>
-              <span className="lp-div">|</span>
-              <span className={lang === 'ar' ? 'lp-on' : ''}>AR</span>
-            </button>
-          </div>
-          <a href="#contact" onClick={() => setOpen(false)} className="df-cta btn-primary">
-            {t.nav.cta}
+          <ThemeToggle />
+          <a href="#contact" className="btn-primary" onClick={() => setOpen(false)}>
+            Let&apos;s Talk
             <svg viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2.5" width="14" height="14">
               <path d="M5 12h14M12 5l7 7-7 7"/>
             </svg>
