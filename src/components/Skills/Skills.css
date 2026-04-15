@@ -1,5 +1,5 @@
 .skills { background: var(--bg1) }
-.skills-wrap { max-width: 1160px; margin: 0 auto }
+.sk-wrap { max-width: 1160px; margin: 0 auto }
 
 /* Tab bar */
 .sk-tabs {

@@ -1,35 +1,11 @@
-.theme-toggle {
-  display: flex; align-items: center;
-  background: var(--bg3); border: 1px solid var(--bdr);
-  border-radius: 100px; padding: 3px;
-  transition: border-color .25s, background .25s;
-}
-.theme-toggle:hover { border-color: var(--bdr2) }
-.tt-track {
-  width: 40px; height: 20px; border-radius: 100px;
-  position: relative; overflow: visible;
-}
-.tt-thumb {
-  position: absolute; top: 1px;
-  width: 18px; height: 18px; border-radius: 50%;
-  display: flex; align-items: center; justify-content: center;
-  transition: left .3s cubic-bezier(.34,1.56,.64,1), background .25s, box-shadow .25s;
-}
-.dark .tt-thumb { left: 1px; background: var(--bg4); color: var(--cyan); box-shadow: 0 0 8px rgba(0,200,248,.4) }
-.light .tt-thumb { left: 21px; background: #ffe566; color: #b45309; box-shadow: 0 0 10px rgba(255,200,0,.5) }
+.tt { display:flex;align-items:center;background:rgba(8,18,32,.9);border:1px solid rgba(255,255,255,.1);border-radius:100px;padding:3px;transition:border-color .25s }
+.tt:hover { border-color:rgba(21,96,242,.4) }
+.tt-track { width:42px;height:22px;border-radius:100px;position:relative }
+.tt-thumb { position:absolute;top:1px;width:20px;height:20px;border-radius:50%;display:flex;align-items:center;justify-content:center;transition:left .3s var(--bounce),background .25s }
+.tt .tt-thumb { left:1px;background:rgba(30,50,100,.9);color:var(--cyan) }
+.tt.light .tt-thumb { left:21px;background:#ffe566;color:#92400e }
 
-/* Light mode overrides */
-.light-mode {
-  --bg:  #f0f4ff;
-  --bg1: #e8eeff;
-  --bg2: #dde5ff;
-  --bg3: #c8d5ff;
-  --bg4: #b8c8ff;
-  --t1:  #0f1929;
-  --t2:  #4a5c7a;
-  --t3:  #8a9ab8;
-  --bdr: rgba(20,99,243,.15);
-  --bdr2:rgba(20,99,243,.4);
-  --bgl: rgba(20,99,243,.08);
-}
-.light-mode body { background: #f0f4ff; color: #0f1929 }
+.light-mode { --bg:#f0f4ff;--bg1:#e8eeff;--bg2:#dde5ff;--bg3:#ccd5ff;--bg4:#b8caff;--surface:rgba(236,240,255,.9);--surface2:rgba(228,234,255,.95);--glass:rgba(255,255,255,.5);--glass2:rgba(255,255,255,.7);--t1:#0a1425;--t2:#425070;--t3:#8898b8;--bdr:rgba(21,96,242,.14);--bdr2:rgba(21,96,242,.35);--bgl:rgba(21,96,242,.07) }
+.light-mode body { background:#f0f4ff;color:#0a1425 }
+.light-mode .navbar { background:rgba(240,244,255,.88)!important;border-color:rgba(21,96,242,.15)!important }
+.light-mode .nav-drawer { background:rgba(240,244,255,.97)!important }

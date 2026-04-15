@@ -98,3 +98,27 @@
 
 @media(max-width:860px){.contact-grid{grid-template-columns:1fr;gap:3rem}}
 @media(max-width:500px){.form-row{grid-template-columns:1fr}.ci-stats{grid-template-columns:1fr 1fr}}
+
+/* Class aliases */
+.ci-ico { width:38px;height:38px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.07);border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:transform .28s var(--bounce) }
+.ci-link:hover .ci-ico { transform:scale(1.12) rotate(-6deg) }
+.ci-txt small { display:block;font-family:var(--ff-m);font-size:.6rem;color:var(--t3);text-transform:uppercase;letter-spacing:.1em;margin-bottom:2px }
+.ci-txt span { display:block;font-size:.84rem;color:var(--t2) }
+.ci-no { cursor:default;pointer-events:none }
+
+/* Form classes */
+.fiw { position:relative }
+.fiw input,.fiw textarea { width:100%;background:rgba(8,18,32,.9);border:1.5px solid rgba(255,255,255,.08);border-radius:12px;padding:.82rem 1rem;font-family:var(--ff-b);font-size:.88rem;color:var(--t1);outline:none;resize:vertical;transition:border-color .25s,box-shadow .25s }
+.fiw input::placeholder,.fiw textarea::placeholder { color:var(--t3) }
+.fiw input:focus,.fiw textarea:focus { border-color:rgba(21,96,242,.5);box-shadow:0 0 0 3px rgba(21,96,242,.1);background:rgba(8,18,32,1) }
+.fib { position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:0;height:2px;background:linear-gradient(90deg,var(--blue),var(--cyan));transition:width .4s var(--spring);border-radius:2px }
+.fiw:focus-within .fib { width:100% }
+.fe .fiw input,.fe .fiw textarea { border-color:rgba(239,68,68,.5) }
+.ferr { font-size:.75rem;color:var(--red) }
+
+.fsub { display:flex;align-items:center;justify-content:center;gap:8px;padding:.9rem 2rem;background:linear-gradient(135deg,var(--blue),#0033cc);color:#fff;border:none;border-radius:12px;font-size:.9rem;font-weight:700;transition:all .32s var(--bounce);box-shadow:0 4px 28px rgba(21,96,242,.42);width:100% }
+.fsub:hover:not(:disabled) { transform:translateY(-3px);box-shadow:0 12px 40px rgba(21,96,242,.55) }
+.fsub:disabled { opacity:.75 }
+.fsub.done { background:linear-gradient(135deg,var(--green),#047857) }
+.fsp { width:16px;height:16px;border:2px solid rgba(255,255,255,.3);border-top-color:#fff;border-radius:50%;animation:spin .75s linear infinite }
+.fn { font-size:.75rem;color:var(--t3);text-align:center;font-family:var(--ff-m) }

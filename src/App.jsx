@@ -1,13 +1,11 @@
-import { useEffect } from 'react'
 import { useScrollReveal } from './hooks/useScrollReveal.js'
 
-import MouseFollower  from './components/UI/MouseFollower.jsx'
-import MouseTrail     from './components/UI/MouseTrail.jsx'
-import LoadingScreen  from './components/UI/LoadingScreen.jsx'
-import Particles      from './components/UI/Particles.jsx'
-import ToastContainer from './components/UI/Toast.jsx'
-import BackToTop      from './components/UI/BackToTop.jsx'
-import SectionNav     from './components/UI/SectionNav.jsx'
+import LoadingScreen    from './components/UI/LoadingScreen.jsx'
+import Particles        from './components/UI/Particles.jsx'
+import CursorSpotlight  from './components/UI/CursorSpotlight.jsx'
+import ToastContainer   from './components/UI/Toast.jsx'
+import BackToTop        from './components/UI/BackToTop.jsx'
+import SectionNav       from './components/UI/SectionNav.jsx'
 
 import Navbar     from './components/Navbar/Navbar.jsx'
 import Hero       from './components/Hero/Hero.jsx'
@@ -24,8 +22,7 @@ export default function App() {
     <>
       <LoadingScreen />
       <Particles />
-      <MouseTrail />
-      <MouseFollower />
+      <CursorSpotlight />
       <ToastContainer />
       <BackToTop />
       <SectionNav />
