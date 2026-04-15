@@ -1,0 +1,35 @@
+.theme-toggle {
+  display: flex; align-items: center;
+  background: var(--bg3); border: 1px solid var(--bdr);
+  border-radius: 100px; padding: 3px;
+  transition: border-color .25s, background .25s;
+}
+.theme-toggle:hover { border-color: var(--bdr2) }
+.tt-track {
+  width: 40px; height: 20px; border-radius: 100px;
+  position: relative; overflow: visible;
+}
+.tt-thumb {
+  position: absolute; top: 1px;
+  width: 18px; height: 18px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  transition: left .3s cubic-bezier(.34,1.56,.64,1), background .25s, box-shadow .25s;
+}
+.dark .tt-thumb { left: 1px; background: var(--bg4); color: var(--cyan); box-shadow: 0 0 8px rgba(0,200,248,.4) }
+.light .tt-thumb { left: 21px; background: #ffe566; color: #b45309; box-shadow: 0 0 10px rgba(255,200,0,.5) }
+
+/* Light mode overrides */
+.light-mode {
+  --bg:  #f0f4ff;
+  --bg1: #e8eeff;
+  --bg2: #dde5ff;
+  --bg3: #c8d5ff;
+  --bg4: #b8c8ff;
+  --t1:  #0f1929;
+  --t2:  #4a5c7a;
+  --t3:  #8a9ab8;
+  --bdr: rgba(20,99,243,.15);
+  --bdr2:rgba(20,99,243,.4);
+  --bgl: rgba(20,99,243,.08);
+}
+.light-mode body { background: #f0f4ff; color: #0f1929 }

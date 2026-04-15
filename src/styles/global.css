@@ -83,3 +83,19 @@ section+section::before{content:'';display:block;height:1px;background:linear-gr
 
 @media(max-width:900px){section{padding:90px 5%}}
 @media(max-width:600px){section{padding:75px 4%}}
+
+/* ─── LIGHT MODE ─── */
+.light-mode {
+  --bg:#f0f4ff;--bg1:#e8eeff;--bg2:#dde5ff;--bg3:#c8d5ff;--bg4:#b8c8ff;
+  --t1:#0f1929;--t2:#4a5c7a;--t3:#8a9ab8;
+  --bdr:rgba(20,99,243,.15);--bdr2:rgba(20,99,243,.4);--bgl:rgba(20,99,243,.08);
+}
+.light-mode body{background:#f0f4ff!important;color:#0f1929}
+.light-mode .navbar,.light-mode .nav-drawer{background:rgba(240,244,255,.92)!important;border-color:rgba(20,99,243,.15)!important}
+.light-mode section+section::before{background:linear-gradient(90deg,transparent,rgba(20,99,243,.12),transparent)}
+
+/* ─── SMOOTH FOCUS RING ─── */
+:focus-visible{outline:2px solid var(--blue);outline-offset:3px;border-radius:4px}
+
+/* ─── SELECTION ─── */
+::selection{background:var(--blue);color:#fff}

@@ -9,6 +9,7 @@ import LoadingScreen  from './components/UI/LoadingScreen.jsx'
 import Particles      from './components/UI/Particles.jsx'
 import ToastContainer from './components/UI/Toast.jsx'
 import BackToTop      from './components/UI/BackToTop.jsx'
+import SectionNav     from './components/UI/SectionNav.jsx'
 
 import Navbar     from './components/Navbar/Navbar.jsx'
 import Hero       from './components/Hero/Hero.jsx'
@@ -34,6 +35,7 @@ export default function App() {
       <MouseFollower />
       <ToastContainer />
       <BackToTop />
+      <SectionNav />
       <Navbar />
       <main>
         <Hero />
