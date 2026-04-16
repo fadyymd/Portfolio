@@ -1,0 +1,33 @@
+.float-cta {
+  position: fixed; bottom: 5.5rem; right: 1.8rem; z-index: 400;
+  display: flex; align-items: center; gap: .6rem;
+  background: linear-gradient(135deg, var(--blue), #0033cc);
+  color: #fff; border-radius: 100px;
+  padding: .7rem 1.2rem .7rem .9rem;
+  font-size: .82rem; font-weight: 700;
+  box-shadow: 0 8px 32px rgba(21,96,242,.5);
+  transition: transform .35s var(--bounce), box-shadow .3s;
+  animation: floatIn .5s var(--bounce) both;
+  position: fixed;
+}
+@keyframes floatIn { from{opacity:0;transform:translateY(20px) scale(.9)} to{opacity:1;transform:none} }
+.float-cta:hover {
+  transform: translateY(-3px) scale(1.04);
+  box-shadow: 0 14px 44px rgba(21,96,242,.65);
+}
+.float-cta.pulse {
+  animation: ctaPulse .9s var(--bounce);
+}
+@keyframes ctaPulse {
+  0%  { transform: scale(1)    }
+  40% { transform: scale(1.1) }
+  70% { transform: scale(.97) }
+  100%{ transform: scale(1)   }
+}
+.fcta-label { white-space: nowrap }
+.fcta-ring {
+  position: absolute; inset: -4px; border-radius: 100px;
+  border: 2px solid rgba(21,96,242,.5);
+  animation: ringPulse 2s ease-in-out infinite;
+  pointer-events: none;
+}

@@ -6,6 +6,8 @@ import CursorSpotlight  from './components/UI/CursorSpotlight.jsx'
 import ToastContainer   from './components/UI/Toast.jsx'
 import BackToTop        from './components/UI/BackToTop.jsx'
 import SectionNav       from './components/UI/SectionNav.jsx'
+import ReadingProgress  from './components/UI/ReadingProgress.jsx'
+import FloatCTA         from './components/UI/FloatCTA.jsx'
 
 import Navbar     from './components/Navbar/Navbar.jsx'
 import Hero       from './components/Hero/Hero.jsx'
@@ -24,8 +26,10 @@ export default function App() {
       <Particles />
       <CursorSpotlight />
       <ToastContainer />
+      <ReadingProgress />
       <BackToTop />
       <SectionNav />
+      <FloatCTA />
       <Navbar />
       <main>
         <Hero />
